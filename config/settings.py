@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'users',
     'calendars',
+    'boards',
 
     'allauth',
     'allauth.account',

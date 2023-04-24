@@ -10,11 +10,11 @@
   <h1>메인페이지</h1>
   {% if user.is_authenticated%}
 
-  <span>목표게시판</span>
+  <span><a href="{% url 'boards:board' %}"> 투자게시판</a></span>
 
   <span>내 가계부달력</span>
 
-  <span>데이터보기</span>
+  <span>간편 주식 데이터</span>
   
   <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6><br />
   <a href="{% url 'users:log_out'%}" \>Logout</a>

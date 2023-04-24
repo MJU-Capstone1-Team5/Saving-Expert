@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>투자게시판</h1>
+
+  {% for boardinfo in boardinfo %}
+  <div>
+    <div><a href="{% url 'boards:detail' id=boardinfo.id %}">제목 : {{boardinfo.title}}</a></div>
+    <div>작성자 : {{boardinfo.userid.username}}</div>
+    <div>카테고리 : {{boardinfo.category.name}}</div>
+    <div>작성일 : {{boardinfo.date}}</div>
+  </div>
+  <br>
+  {% endfor %}
+</body>
+</html>

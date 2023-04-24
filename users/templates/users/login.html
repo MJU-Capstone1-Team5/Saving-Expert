@@ -31,24 +31,26 @@
               <button class="login_loginbtn">
                 login
               </button>
+            </form>
 
-              <a href="{% url 'users:sign_up' %}">Signup</a>
+             
 
           <span class="social_title">
             or, Social Login
           </span>
-        </form>
+        
 
           <!-- 소셜자리 -->
           <form action="{% provider_login_url 'google' %}" method="post">
             {% csrf_token %}
             <button type="submit" class="login_social_btn">
-              <img src="{% static 'img/google.png' %}" class="login_social_img3">
+              <img src="{% static 'image/google.png' %}" class="login_social_img3">
             </button>
           </form>
 
               or, New acount?
               <a>👉Sign up HERE!</a>
+              <a href="{% url 'users:sign_up' %}">Signup</a>
 
 </body>
 </html>
