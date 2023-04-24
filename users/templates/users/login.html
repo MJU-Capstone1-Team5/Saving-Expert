@@ -1,3 +1,7 @@
+{% load socialaccount %}
+{% load static %}
+{% providers_media_js %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,8 +37,15 @@
           <span class="social_title">
             or, Social Login
           </span>
+        </form>
 
           <!-- 소셜자리 -->
+          <form action="{% provider_login_url 'google' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="login_social_btn">
+              <img src="{% static 'img/google.png' %}" class="login_social_img3">
+            </button>
+          </form>
 
               or, New acount?
               <a>👉Sign up HERE!</a>
