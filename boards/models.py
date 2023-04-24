@@ -1,6 +1,7 @@
 from django.db import models
 from users.models import Myuser
 
+
 # Create your models here.
 class Boardcategory(models.Model):
   name = models.CharField(max_length=50,verbose_name="카테고리", null=True,blank=True)
