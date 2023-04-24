@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>게시물수정</div>
+  <br>
+
+
+  <form action="/board/update/{{boardinfo.id}}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+      게시글 카테고리
+    <select name="postcategory" id="">
+    {%  for categoryinfo in categoryinfo %}
+      {% if categoryinfo.name == boardinfo.category.name%}
+      <option selected="selected" value="{{categoryinfo.name}}">{{categoryinfo.name}}</option>
+      {% else %}
+      <option value="{{categoryinfo.name}}">{{categoryinfo.name}}</option>
+      {%endif%}
+    {% endfor %}
+
+    </select>
+    </div>
+    <div>제목 : <input type="text" name="boardtitle" value="{{boardinfo.title}}"/></div>
+    <div>사진 : 
+      <div>
+        {% if boardinfo.boardimage %}
+        <div>{{boardinfo.boardimage.url|slice:"18:" }}</div>
+        <input type="checkbox" name="clearimage" value="clearimage" id="clearimage"/><label for="clearimage">clear</label>
+        {%endif%}
+        <input type="file" name="boardphoto" id="boardphoto" /></div>
+      </div>
+      
+    <div>내용 : <textarea name="boardcontext" id="" cols="30" rows="10" value="{{boardinfo.context}}">{{boardinfo.context}}</textarea></div>
+
+    <div><input type="submit" value="글 수정" /></div>
+    <div><a href="{% url 'boards:detail' id=boardinfo.id %}">취소하기</a></div>
+  </form>
+
+
+
+  </form>
+</body>
+</html>

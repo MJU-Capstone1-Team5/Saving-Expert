@@ -16,6 +16,8 @@
   <div>작성일 : {{boardinfo.date}}</div>
   <div>이미지 : <img src="media/{{boardinfo.boardimage}}" alt=""></div>
   <div>본문 : {{boardinfo.context}}</div>
+  <br>
+  <div><a href="{% url 'boards:update' id=boardinfo.id %}">수정하기</a></div>
   
   <br>
 
