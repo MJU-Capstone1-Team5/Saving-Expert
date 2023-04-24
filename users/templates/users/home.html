@@ -8,17 +8,20 @@
 </head>
 <body>
   <h1>메인페이지</h1>
+  {% if user.is_authenticated%}
 
-  로그인
+  <span>목표게시판</span>
 
-  회원가입
+  <span>내 가계부달력</span>
 
-  마이페이지
+  <span>데이터보기</span>
+  
+  <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6><br />
+  <a href="{% url 'users:log_out'%}" \>Logout</a>
+  {% else %}  
+  <a href="{% url 'users:log_in' %}" >Login</a>
 
-  꿀팁게시판
-
-  나눔게시판
-
-  나눔가게지도
+  <a href="{% url 'users:sign_up' %}">Signup</a>
+  {% endif %}
 </body>
 </html>

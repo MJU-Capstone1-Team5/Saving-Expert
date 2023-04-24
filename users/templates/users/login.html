@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+        <form action="{% url 'users:log_in' %}" method="POST" class="login_local_form">
+          {% csrf_token %}
+            <span class="login_title">
+              - Login -
+            </span>
+
+                <span class="login_text">
+                  username:
+                </span>
+                {{form.username}}
+
+                <span class="login_text">
+                  password:
+                </span>
+                {{form.password}}
+
+              <button class="login_loginbtn">
+                login
+              </button>
+
+              <a href="{% url 'users:sign_up' %}">Signup</a>
+
+          <span class="social_title">
+            or, Social Login
+          </span>
+
+          <!-- 소셜자리 -->
+
+              or, New acount?
+              <a>👉Sign up HERE!</a>
+
+</body>
+</html>
