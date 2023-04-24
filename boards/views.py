@@ -76,3 +76,8 @@ def update(request,id):
     "categoryinfo": category,
   }
   return render(request, template_name="boards/update.html",context=context)
+
+def delete(request, id):
+  if request.method == "POST":
+    Board.objects.filter(id=id).delete()
+    return redirect("/board")

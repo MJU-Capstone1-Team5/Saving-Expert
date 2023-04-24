@@ -18,6 +18,9 @@
   <div>본문 : {{boardinfo.context}}</div>
   <br>
   <div><a href="{% url 'boards:update' id=boardinfo.id %}">수정하기</a></div>
+  <form action="{% url 'boards:delete' id=boardinfo.id %}" method="POST">
+    {% csrf_token %}<button type="submit">삭제</button>
+  </form>
   
   <br>
 
