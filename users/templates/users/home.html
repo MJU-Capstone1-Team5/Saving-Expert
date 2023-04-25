@@ -14,7 +14,7 @@
 
   <div><span>간편주식데이터</span></div>
   
-  <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6><br />
+  <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중 <a href="/myuser/{{user.id}}">내 페이지가기</a></h6><br />
   <a href="{% url 'users:log_out'%}" \>Logout</a>
   {% else %}  
   <a href="{% url 'users:log_in' %}" >Login</a>

@@ -3,6 +3,8 @@ from django.views import View
 from . import forms
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from .models import Myuser
+
 
 # Create your views here.
 def main(request):
@@ -51,3 +53,30 @@ def sign_up(request):
 def log_out(request):
     logout(request)
     return redirect("users:main")
+
+def mypagecreate(request, id):
+    myuser = Myuser.objects.get(pk = id)
+    if request.method == "POST":
+        clearimage = request.POST.get('clearimage')
+        userphoto = request.FILES.get("userphoto")
+        if userphoto == None:
+            if clearimage == 'clearimage':
+                userphoto = None
+            else:
+                userphoto = myuser.userimage
+        usercontext = request.POST["usermemo"]
+        myuser.userimage = userphoto
+        myuser.usermemo = usercontext
+        myuser.save()
+        return redirect(f"/myuser/{myuser.id}")
+    context = {
+        "myuser": myuser,
+    }
+    return render(request, template_name="users/myusercreate.html",context=context)
+
+def myuser(request,id):
+    myuser = Myuser.objects.get(id = id)
+    context = {
+        "myuser": myuser,
+    }
+    return render(request, template_name="users/myuser.html",context=context)

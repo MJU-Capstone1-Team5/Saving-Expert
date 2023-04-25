@@ -11,6 +11,8 @@ urlpatterns = [
     path("login/", views.login_view.as_view(), name="log_in"),
     path("signup/", views.sign_up, name="sign_up"),
     path("logout/", views.log_out, name="log_out"),
+    path("myusercreate/<int:id>", views.mypagecreate, name="myusercreate" ),
+    path("myuser/<int:id>", views.myuser, name="myuser"),
     #path('accounts/', include('allauth.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
