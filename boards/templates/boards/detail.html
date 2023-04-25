@@ -18,8 +18,10 @@
   <div>본문 : {{boardinfo.context}}</div>
   <br>
   <div><a href="{% url 'boards:update' id=boardinfo.id %}">수정하기</a></div>
+  {% if boardinfo.userid.username == user.username %}
   <form action="{% url 'boards:delete' id=boardinfo.id %}" method="POST">
     {% csrf_token %}<button type="submit">삭제</button>
+  {% endif %}
   </form>
   
   <br>
@@ -29,7 +31,19 @@
   <div>작성자 : {{commentinfo.userid.username}}</div>
   <div>내용 : {{commentinfo.context}}</div>
   <div>작성일 : {{commentinfo.date}}</div>
+  {% if commentinfo.userid.username == user.username %}
+  <form action="{% url 'boards:commentdelete' id=commentinfo.id bid=boardinfo.id %}" method="POST">
+    {% csrf_token %}<button type="submit">삭제</button>
+  </form>
+  {% endif %}
   {% endfor %}
+
+  <form action="{% url 'boards:commentcreate' id=boardinfo.id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>내용 : <textarea name="commentcontext" id="" cols="30" rows="10"></textarea></div>
+
+    <div><input type="submit" value="댓글 작성" /></div>
+  </form>
 
   
 </body>

@@ -12,5 +12,7 @@ urlpatterns = [
     path('create',views.create, name='create'),
     path('update/<int:id>',views.update, name='update'),
     path('delete/<int:id>',views.delete, name='delete'),
+    path('commentdelete/<int:id>/<int:bid>', views.commentdelete, name='commentdelete'),
+    path('commentcreate/<int:id>', views.commentcreate, name='commentcreate'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
