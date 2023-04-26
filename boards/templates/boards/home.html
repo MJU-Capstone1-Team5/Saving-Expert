@@ -10,7 +10,7 @@
 <body>
   <div><a href="{% url 'users:main'%}"> 홈으로 </a></div>
   <h1>투자게시판</h1>
-  <div><a href="{% url 'boards:create' %}">글작성</a></div>
+  <div><a href="{% url 'boards:create' %}">글작성</a> </div>
 
   {% for boardinfo in boardinfo %}
   <div>
