@@ -50,7 +50,6 @@ div{
     font-weight: 500;
     border-width: 5px;
     line-height: 100px;
-    /* background: tomato; */
 }
 .category1 a[href]{
     color: #FF8C00;
@@ -70,8 +69,6 @@ div{
     font-size: 300%;
     font-weight: 500;
     border-width: 5px;
-
-    /* background:#FFFACD; */
     line-height: 100px;
 }
 /* 로그인 전 메인페이지 화면 스타일 */
@@ -88,8 +85,6 @@ div{
     font-size: 150%;
     font-weight: 500;
     border-width: 5px;
-
-    /* background:#FFFACD; */
     line-height: 50px;
 }
 /* 로그인 후 메인페이지 하단 부분 스타일 */
@@ -105,19 +100,13 @@ h6{
 #main{
     justify-content: center;
     height: 120px;
-
-    /* background-color: #FFDA77; */
     background-color: #FF8C00;
 
     width: 90%;
     border: 10px solid #FF8C00;
-    /* padding: 10px;
-    margin: 10px; */
     text-align: center;
 
-    /* color: #FF8C00; */
     color: #FFDA77;
-    /* color: #FF8C00; */
 
     border-radius: 10px;
     letter-spacing: 0.2em;
@@ -134,7 +123,6 @@ h6{
 /* 주식 그림 스타일 */
 
 .category1 a:hover, .category1 a:focus{
-    /* background-color: #FFA500; */
     color: #fff;
 }
 .category1 a:active{
