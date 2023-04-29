@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+body{
+    background-color: #FFDA77;
+    padding: 10px;
+    margin: 10px;
+    font-family: 'Black Han Sans', sans-serif;
+    font-weight: lighter;
+}
+
+div{
+    width: 1200px;
+    margin: 20px auto;
+}
+
+.container{
+    display: flex;
+    text-align: center;
+}
+
+#box{
+    flex-direction: row;
+}
+
+#box1{
+    flex-direction: column;
+}
+
+.before_login{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.category1, .category2
+{
+    width: 70%;
+    height: 100px;
+    margin-top: 70px;
+    margin-bottom: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    float: left;
+
+    border: 10px solid black;
+    padding: 10px;
+    text-align: center;
+    color: #FF8C00;
+    border-radius: 10px;
+    letter-spacing: 0.2em;
+    font-size: 250%;
+    font-weight: 500;
+    border-width: 5px;
+    line-height: 100px;
+    /* background: tomato; */
+}
+.category1 a[href]{
+    color: #FF8C00;
+}
+/* 메인페이지 카테고리 스타일 */
+
+.before_login{
+    float: left;
+    width: 400px;
+    height: 100px;
+    padding: 10px;
+    margin: 200px;
+    text-align: center;
+
+    border-radius: 10px;
+    letter-spacing: 0.2em;
+    font-size: 300%;
+    font-weight: 500;
+    border-width: 5px;
+
+    /* background:#FFFACD; */
+    line-height: 100px;
+}
+/* 로그인 전 메인페이지 화면 스타일 */
+
+.after_login, h6{
+    float: left;
+    width: 400px;
+    height: 50px;
+    padding: 10px;
+    margin: 120px;
+    text-align: center;
+    border-radius: 10px;
+    letter-spacing: 0.2em;
+    font-size: 150%;
+    font-weight: 500;
+    border-width: 5px;
+
+    /* background:#FFFACD; */
+    line-height: 50px;
+}
+/* 로그인 후 메인페이지 하단 부분 스타일 */
+h6{
+    color: #FF8C00;
+}
+/* xx님이 로그인중 스타일 */
+
+.after_login a[href], .before_login a[href]{
+    color: black;
+}
+
+#main{
+    justify-content: center;
+    height: 120px;
+
+    /* background-color: #FFDA77; */
+    background-color: #FF8C00;
+
+    width: 90%;
+    border: 10px solid #FF8C00;
+    /* padding: 10px;
+    margin: 10px; */
+    text-align: center;
+
+    /* color: #FF8C00; */
+    color: #FFDA77;
+    /* color: #FF8C00; */
+
+    border-radius: 10px;
+    letter-spacing: 0.2em;
+    font-size: 250%;
+    font-weight: 500;
+    border-width: 20px;
+    line-height: 120px;
+}
+
+.jpg{
+    width: 500px;
+    height: 600px;
+}
+/* 주식 그림 스타일 */
+
+.category1 a:hover, .category1 a:focus{
+    /* background-color: #FFA500; */
+    color: #fff;
+}
+.category1 a:active{
+    background-color: #FF8C00;
+}
+.before_login a:hover, .before_login a:focus{
+    color: #FF8C00;
+}
+.after_login a:hover, .after_login a:focus{
+    color: #FF8C00;
+}
+/* 마우스 가까이 가면 변하는 스타일 */
+
+/* login.html */
+
+.login_local_form{
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+    letter-spacing: 0.2em;
+    font-size: 150%;
+    font-weight: lighter;
+    border-width: 5px;
+}
+/* 로그인 창 스타일(소셜 로그인 제외) */
+
+.social_title, .loginbox3{
+    font-size: larger;
+}
+
+/* 로그인 창 스타일 */
+#login{
+    flex-direction: column;
+    border: 5px solid white;
+}
+#login_other{
+    flex-direction: column;
+}
+.social{
+    flex-direction: column;
+}
+.signup{
+    flex-direction: column;
+}
+
+input[type=text], input[type=password]{
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login_loginbtn{
+    width: 300px;
+    height: 40px;
+    background-color: #FF8C00;
+    color: white;
+    font-size: 25px;
+    font-family: 'Black Han Sans', sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 0.2em;
+}
+
+.loginbox4{
+    justify-content: space-around;
+    width: 300px;
+    height: 30px;
+    padding: 10px;
+    margin-left: 35%;
+    margin-right: 40%;
+    text-align: center;
+    border-radius: 10px;
+    letter-spacing: 0.2em;
+    font-size: 150%;
+    font-weight: 500;
+    border-width: 5px;
+
+    background:#FF8C00;
+}
+.loginbox4 a[href]{
+    color: #FFDA77;
+}
+.loginbox4 a:hover, .loginbox4 a:focus{
+    color: white;
+}
