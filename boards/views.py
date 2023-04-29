@@ -81,3 +81,21 @@ def delete(request, id):
   if request.method == "POST":
     Board.objects.filter(id=id).delete()
     return redirect("/board")
+  
+def commentcreate(request, id):
+  if request.method == "POST":
+    user = Myuser.objects.get(id = request.user.id)
+    board = Board.objects.get(pk = id)
+    commentcontext = request.POST["commentcontext"]
+
+    now = datetime.now()
+    formatted_date = now.strftime("%Y-%m-%d %H:%M")
+    Boardcomment.objects.create(userid = user,boardid = board,  context = commentcontext, date = formatted_date )
+
+    return redirect(f"/board/{id}")
+  
+def commentdelete(request, id,bid):
+  if request.method == "POST":
+    Boardcomment.objects.filter(id=id).delete()
+    return redirect(f"/board/{bid}")
+
