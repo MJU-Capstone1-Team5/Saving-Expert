@@ -36,7 +36,7 @@
   </div>
   
   <div class="container" id="box3">
-    <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6><br />
+    <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중 <a href="/myuser/{{user.id}}">내 페이지가기</a></h6><br />
     <div class="after_login">
       <a href="{% url 'users:log_out'%}"\>Logout</a>
     </div>
