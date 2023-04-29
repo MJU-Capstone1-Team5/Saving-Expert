@@ -12,7 +12,7 @@
 <body>
   <h1>
     <div class="container" id="main">
-      <img src="{% static 'image/icon2.png' %}" style="width:55px; height:55px; margin: 25px;"> 메인페이지
+      <img src="{% static 'image/icon2.png' %}" style="width:55px; height:55px; margin: 25px;"> 내일은 주식왕
     </div>
   </h1>
   {% if user.is_authenticated%}
@@ -36,7 +36,8 @@
   </div>
   
   <div class="container" id="box3">
-    <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중 <a href="/myuser/{{user.id}}">내 페이지가기</a></h6><br />
+    <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6><br />
+    <div class="after_login"><a href="/myuser/{{user.id}}">내 페이지가기</a></div>
     <div class="after_login">
       <a href="{% url 'users:log_out'%}"\>Logout</a>
     </div>

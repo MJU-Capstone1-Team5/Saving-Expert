@@ -6,21 +6,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <form action="/myusercreate/{{myuser.id}}" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-  <div> 사용자 : {{myuser.username}}님</div>
-  <div>
-    {% if myuser.userimage %}
-    <div>{{myuser.userimage.url|slice:"18:" }}</div>
-    <input type="checkbox" name="clearimage" value="clearimage" id="clearimage"/><label for="clearimage">clear</label>
-    {%endif%}
-    <input type="file" name="userphoto" id="userphoto" />
+  <div class="container" id="modify">
+    <form action="/myusercreate/{{myuser.id}}" method="post" enctype="multipart/form-data" class="modify_form">
+      {% csrf_token %}
+    <div> 사용자 : {{myuser.username}}님</div>
+    <div>
+      {% if myuser.userimage %}
+      <div>{{myuser.userimage.url|slice:"18:" }}</div>
+      <input type="checkbox" name="clearimage" value="clearimage" id="clearimage"/><label for="clearimage">clear</label>
+      {%endif%}
+      <input type="file" name="userphoto" id="userphoto" />
+    </div>
+    <div>자기소개 : <textarea name="usermemo" id="" cols="30" rows="10" value="{{myuser.usermemo}}">{{myuser.usermemo}}</textarea></div>
+    <div><input type="submit" value="글 수정" /></div>
+    </form>
   </div>
-  <div>자기소개 : <textarea name="usermemo" id="" cols="30" rows="10" value="{{myuser.usermemo}}">{{myuser.usermemo}}</textarea></div>
-  <div><input type="submit" value="글 수정" /></div>
-  </form>
 
 
 </body>
