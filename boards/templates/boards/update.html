@@ -3,20 +3,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-  <div>게시물수정</div>
+  <div style="color:#FF8C00; background-color:#FFFACD; width:80px; padding:4px; border-radius: 8px;">게시물수정</div>
   <br>
 
-
+<article>
   <form action="/board/update/{{boardinfo.id}}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div>
-      게시글 카테고리
+      카테고리
     <select name="postcategory" id="">
     {%  for categoryinfo in categoryinfo %}
       {% if categoryinfo.name == boardinfo.category.name%}
@@ -28,8 +29,8 @@
 
     </select>
     </div>
-    <div>제목 : <input type="text" name="boardtitle" value="{{boardinfo.title}}"/></div>
-    <div>사진 : 
+    <div>제목 <input type="text" name="boardtitle" value="{{boardinfo.title}}"/></div>
+    <div>이미지  
       <div>
         {% if boardinfo.boardimage %}
         <div>{{boardinfo.boardimage.url|slice:"18:" }}</div>
@@ -38,10 +39,10 @@
         <input type="file" name="boardphoto" id="boardphoto" /></div>
       </div>
       
-    <div>내용 : <textarea name="boardcontext" id="" cols="30" rows="10" value="{{boardinfo.context}}">{{boardinfo.context}}</textarea></div>
+    <div><center><textarea name="boardcontext" id="" cols="135" rows="10" value="{{boardinfo.context}}">{{boardinfo.context}}</textarea></center></div>
 
-    <div><input type="submit" value="글 수정" /></div>
-    <div><a href="{% url 'boards:detail' id=boardinfo.id %}">취소하기</a></div>
+    <div><button type="submit"/>수정</div>
+    <div><a href="{% url 'boards:detail' id=boardinfo.id %}"><button>취소</a></button></div></article>
   </form>
 
 

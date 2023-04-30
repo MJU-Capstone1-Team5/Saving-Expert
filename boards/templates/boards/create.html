@@ -3,20 +3,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-  <div>게시물생성</div>
+  <div style="color:#FF8C00; background-color:#FFFACD; width:80px; padding:4px; border-radius: 8px;">게시물생성</div>
   <br>
 
-
+<article>
   <form action="/board/create" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div>
-      게시글 카테고리
+      카테고리
     <select name="postcategory" id="">
     {%  for categoryinfo in categoryinfo %}
       <option value="{{categoryinfo.name}}">{{categoryinfo.name}}</option>
@@ -25,12 +26,12 @@
     {% endfor %}
     </select>
     </div>
-    <div>제목 : <input type="text" name="boardtitle"/></div>
-    <div>사진 : <input type="file" name="boardphoto" id="boardphoto" /></div>
-    <div>내용 : <textarea name="boardcontext" id="" cols="30" rows="10"></textarea></div>
+    <div>제목 <input type="text" name="boardtitle"/></div>
+    <div>이미지 <input type="file" name="boardphoto" id="boardphoto" /></div>
+    <div><center><textarea name="boardcontext" id="" cols="135" rows="10"></textarea></center></div>
 
-    <div><input type="submit" value="글 작성" /></div>
-    <div><a href="{% url 'boards:board' %}">취소하기</a></div>
+    <div><button type="submit" />작성</button></div>
+    <div><a href="{% url 'boards:board' %}"><button>취소</a></button></div></article>
   </form>
 
 
