@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,21 +7,51 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <h1>메인페이지</h1>
+  <h1>
+    <div class="container" id="main">
+      <img src="{% static 'image/icon2.png' %}" style="width:55px; height:55px; margin: 25px;"> 내일은 주식왕
+    </div>
+  </h1>
   {% if user.is_authenticated%}
 
-  <div><a href="{% url 'boards:board' %}">투자게시판</a></div>
-
-  <div><span>간편주식데이터</span></div>
+  <div class="container" id="box">
+    <div class="container" id="box1">
+      <div class="category1">
+        <a href="{% url 'boards:board' %}"><img src="{% static 'image/icon4.png' %}" style="width:40px; height:40px;">투자게시판</a>
+      </div>
+    
+      <div class="category2">
+        <span><img src="{% static 'image/icon3.png' %}" style="width:40px; height:40px;">간편주식데이터</span>
+      </div>
+    </div>
   
-  <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중 <a href="/myuser/{{user.id}}">내 페이지가기</a></h6><br />
-  <a href="{% url 'users:log_out'%}" \>Logout</a>
-  {% else %}  
-  <a href="{% url 'users:log_in' %}" >Login</a>
+    <div class="container" id="box2">
+      <div class="jpg">
+        <img src="{% static 'image/backgroundimg.png' %}" style="width: 120%; height: 100%;">
+      </div>
+    </div>
+  </div>
+  
+  <div class="container" id="box3">
+    <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6><br />
+    <div class="after_login"><a href="/myuser/{{user.id}}">내 페이지가기</a></div>
+    <div class="after_login">
+      <a href="{% url 'users:log_out'%}"\>Logout</a>
+    </div>
+  </div>
 
-  <a href="{% url 'users:sign_up' %}">Signup</a>
-  {% endif %}
+  <div class="container" id="box4">
+    {% else %}  
+    <div class="before_login">
+      <a href="{% url 'users:log_in' %}">Login</a>
+    </div>
+    <div class="before_login">
+      <a href="{% url 'users:sign_up' %}">Signup</a>
+    </div>
+    {% endif %}
+  </div>
 </body>
 </html>
