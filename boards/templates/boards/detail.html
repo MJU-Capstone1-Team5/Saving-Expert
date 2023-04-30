@@ -2,49 +2,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}?after">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-  <div><a href="{% url 'boards:board' %}">게시판 돌아가기</a></div>
-  <div>게시물</div>
-  <div>제목 : {{boardinfo.title}}</div>
-  <div>작성자 : {{boardinfo.userid.username}}</div>
-  <div>카테고리 : {{boardinfo.category.name}}</div>
-  <div>작성일 : {{boardinfo.date}}</div>
+  <p><a href="{% url 'boards:board' %}" style="background-color:#FFFACD; width:80px; padding:4px; border-radius: 8px;">투자게시판</a></p>
+  <article><p><div>게시물</div>
+  <div>[{{boardinfo.category.name}}] {{boardinfo.title}}</div>
+  <div>{{boardinfo.userid.username}} {{boardinfo.date}}</div></p>
+  <div>{{boardinfo.context}}</div>
   <div>이미지 : <img src="media/{{boardinfo.boardimage}}" alt=""></div>
-  <div>본문 : {{boardinfo.context}}</div>
-  <br>
-  <div><a href="{% url 'boards:update' id=boardinfo.id %}">수정하기</a></div>
+  <div><a href="{% url 'boards:update' id=boardinfo.id %}"><button type="submit" class="button">수정</button></a></div>
   {% if boardinfo.userid.username == user.username %}
-  <form action="{% url 'boards:delete' id=boardinfo.id %}" method="POST">
-    {% csrf_token %}<button type="submit">삭제</button>
+ <form action="{% url 'boards:delete' id=boardinfo.id %}" method="POST">
+    {% csrf_token %}<button type="submit"class="button">삭제</button>
   {% endif %}
   </form>
-  
+</article>
   <br>
-
+<article>
   <div>댓글</div>
   {% for commentinfo in commentinfo %}
-  <div>작성자 : {{commentinfo.userid.username}}</div>
-  <div>내용 : {{commentinfo.context}}</div>
-  <div>작성일 : {{commentinfo.date}}</div>
+  <p><div>{{commentinfo.userid.username}} {{commentinfo.date}}</div>
+  <div>{{commentinfo.context}}</div>
   {% if commentinfo.userid.username == user.username %}
   <form action="{% url 'boards:commentdelete' id=commentinfo.id bid=boardinfo.id %}" method="POST">
-    {% csrf_token %}<button type="submit">삭제</button>
+    {% csrf_token %}<button type="submit" class="button">삭제</button></p>
   </form>
   {% endif %}
   {% endfor %}
-
   <form action="{% url 'boards:commentcreate' id=boardinfo.id %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <div>내용 : <textarea name="commentcontext" id="" cols="30" rows="10"></textarea></div>
-
-    <div><input type="submit" value="댓글 작성" /></div>
+    <div><center><textarea name="commentcontext" id="" cols="135" rows="10"></textarea></center></div>
+    <div><button type="submit"/>작성</button></div>
   </form>
-
+</article>
   
 </body>
 </html>

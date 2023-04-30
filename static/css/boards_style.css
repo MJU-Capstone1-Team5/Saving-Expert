@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+body{
+    background-color: #FFDA77;
+    font-family:'Black+Han+Sans',sans-serif;
+    font-weight: lighter;
+    padding:10px;
+    margin:10px;
+  }
+
+header{
+    background-color:#FFFACD;
+    height:inline-block;
+    width:1000px;
+    margin: 0 auto;
+}
+
+article{
+    background-color:#FFFACD;
+    height:inline-block;
+    width:1000px;
+    padding:4px;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+button{
+    background-color:#FF8C00;
+    border: white;
+}

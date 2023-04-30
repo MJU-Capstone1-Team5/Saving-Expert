@@ -13,6 +13,6 @@ urlpatterns = [
     path("logout/", views.log_out, name="log_out"),
     path("myusercreate/<int:id>", views.mypagecreate, name="myusercreate" ),
     path("myuser/<int:id>", views.myuser, name="myuser"),
-    #path('accounts/', include('allauth.urls')),
+    # path('accounts/', include('allauth.urls')),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

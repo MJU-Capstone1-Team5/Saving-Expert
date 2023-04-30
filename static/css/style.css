@@ -168,6 +168,14 @@ h6 a[href]{
 .signup{
     flex-direction: column;
 }
+.login_social_img3{
+    width: 100%;
+    height: 50%;
+}
+.social_login_btn2{
+    width: 50%;
+    height: 50%;
+}
 
 input[type=text], input[type=password]{
     padding: 10px;
