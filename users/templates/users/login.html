@@ -52,8 +52,11 @@
         <!-- 소셜자리 -->
         <form action="{% provider_login_url 'google' %}" method="post" class="social">
           {% csrf_token %}
-          <button type="submit" class="login_social_btn">
+          <button type="submit" class="login_social_btn1">
             <img src="{% static 'image/google.png' %}" class="login_social_img3">
+         </button>
+         <button type="submit" class="login_social_btn2">
+          <img src="{% static 'image/kakao3.png' %}" class="login_social_img3">
          </button>
        </form>
       </div>

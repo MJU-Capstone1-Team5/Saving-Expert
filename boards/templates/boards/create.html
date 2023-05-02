@@ -10,7 +10,7 @@
   <title>Document</title>
 </head>
 <body>
-  <div style="color:#FF8C00; background-color:#FFFACD; width:80px; padding:4px; border-radius: 8px;">게시물생성</div>
+  <div><a href="{% url 'users:main'%}"> <img src="{% static 'image/logo.png' %}" width="142;"> </a></div>
   <br>
 
 <article>
@@ -28,10 +28,9 @@
     </div>
     <div>제목 <input type="text" name="boardtitle"/></div>
     <div>이미지 <input type="file" name="boardphoto" id="boardphoto" /></div>
-    <div><center><textarea name="boardcontext" id="" cols="135" rows="10"></textarea></center></div>
+    <div><center><textarea name="boardcontext" id="" cols="188" rows="30"></textarea></center></div>
 
-    <div><button type="submit" />작성</button></div>
-    <div><a href="{% url 'boards:board' %}"><button>취소</a></button></div></article>
+    <div><button type="submit" />작성</button> <button><a href="{% url 'boards:board' %}" style="color:white;">취소</a></button></div></article>
   </form>
 
 

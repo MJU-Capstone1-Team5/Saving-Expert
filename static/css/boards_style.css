@@ -1,34 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 
-body{
-    background-color: #FFDA77;
-    font-family:'Black+Han+Sans',sans-serif;
-    font-weight: lighter;
-    padding:10px;
-    margin:10px;
-  }
-
-header{
-    background-color:#FFFACD;
-    height:inline-block;
-    width:1000px;
-    margin: 0 auto;
-}
 
 article{
-    background-color:#FFFACD;
+    background-color:white;
     height:inline-block;
-    width:1000px;
-    padding:4px;
+    width:1380px;
     margin: 0 auto;
-    border-radius: 8px;
+    border: 2px solid;
+    padding:10px;
 }
 
-button{
-    background-color:#FF8C00;
+body{
+    background-color:white;
+  }
+
+  button{
+    color:white;
+    background-color:#4B64EA;
     border: white;
+    padding:5px;
+    border-radius: 5px;
+    width:80px; height:40px;
+  }
+
+table{
+    border-collapse:collapse;
+    border:2px solid;
+    width:1400px;
+    margin-left:auto;
+    margin-right:auto;
+}
+th{
+    color:#919191;
+}
+tr{
+    border:1px solid;
+    height: 50px;
 }
 
-font{
-    font-size: 150%;
+a{
+    text-decoration-line: none;
 }

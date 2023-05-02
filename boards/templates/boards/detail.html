@@ -9,16 +9,16 @@
   <title>Document</title>
 </head>
 <body>
-  <p><a href="{% url 'boards:board' %}" style="background-color:#FFFACD; width:80px; padding:4px; border-radius: 8px;">투자게시판</a></p>
+  <div><a href="{% url 'users:main'%}"> <img src="{% static 'image/logo.png' %}" width="142;"> </a></div>
+  <br>
   <article><p><div>게시물</div>
   <div style="font-size: 130%; font-weight: 400;">[{{boardinfo.category.name}}] {{boardinfo.title}}</div>
   <div>{{boardinfo.userid.username}} {{boardinfo.date}}</div></p>
   <div>{{boardinfo.context}}</div>
-  <div>이미지 : <img src="media/{{boardinfo.boardimage}}" alt=""></div>
-  <div><a href="{% url 'boards:update' id=boardinfo.id %}"><button type="submit" class="button">수정</button></a></div>
+  <div><img src="media/{{boardinfo.boardimage}}" alt=""></div>
   {% if boardinfo.userid.username == user.username %}
- <form action="{% url 'boards:delete' id=boardinfo.id %}" method="POST">
-    {% csrf_token %}<button type="submit"class="button">삭제</button>
+  <div><a href="{% url 'boards:update' id=boardinfo.id %}"><button type="submit" class="button">수정</button></a>
+    <form action="{% url 'boards:delete' id=boardinfo.id %}" method="POST">{% csrf_token %}<button type="submit"class="button">삭제</button>
   {% endif %}
   </form>
 </article>
@@ -36,7 +36,7 @@
   {% endfor %}
   <form action="{% url 'boards:commentcreate' id=boardinfo.id %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <div><center><textarea name="commentcontext" id="" cols="135" rows="10"></textarea></center></div>
+    <div><center><textarea name="commentcontext" id="" cols="188" rows="9"></textarea></center></div>
     <div><button type="submit"/>작성</button></div>
   </form>
 </article>

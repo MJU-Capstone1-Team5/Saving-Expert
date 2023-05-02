@@ -10,7 +10,7 @@
   <title>Document</title>
 </head>
 <body>
-  <div style="color:#FF8C00; background-color:#FFFACD; width:80px; padding:4px; border-radius: 8px;">게시물수정</div>
+  <div><a href="{% url 'users:main'%}"> <img src="{% static 'image/logo.png' %}" width="142;"> </a></div>
   <br>
 
 <article>
@@ -22,7 +22,6 @@
     {%  for categoryinfo in categoryinfo %}
       {% if categoryinfo.name == boardinfo.category.name%}
       <option selected="selected" value="{{categoryinfo.name}}">{{categoryinfo.name}}</option>
-      {% else %}
       <option value="{{categoryinfo.name}}">{{categoryinfo.name}}</option>
       {%endif%}
     {% endfor %}
@@ -39,10 +38,10 @@
         <input type="file" name="boardphoto" id="boardphoto" /></div>
       </div>
       
-    <div><center><textarea name="boardcontext" id="" cols="135" rows="10" value="{{boardinfo.context}}">{{boardinfo.context}}</textarea></center></div>
+    <div><center><textarea name="boardcontext" id="" cols="188" rows="10" value="{{boardinfo.context}}">{{boardinfo.context}}</textarea></center></div>
 
     <div><button type="submit"/>수정</div>
-    <div><a href="{% url 'boards:detail' id=boardinfo.id %}"><button>취소</a></button></div></article>
+    <div><a href="{% url 'boards:detail' id=boardinfo.id %}" style="color:white;"><button>취소</a></button></div></article>
   </form>
 
 
