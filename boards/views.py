@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Board, Boardcomment, Myuser, Boardcategory
 from datetime import datetime
+from django.core.paginator import Paginator  
 
 
 
