@@ -2,25 +2,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}?after">
 </head>
 <body>
-  <div><a href="{% url 'users:main'%}"> 홈으로 </a></div>
-  <h1>투자게시판</h1>
-  <div><a href="{% url 'boards:create' %}">글작성</a></div>
+  <div><a href="{% url 'users:main'%}"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADBUlEQVR4nO1ZO2gUURQ9JiqiJiCCCqZQIpJglKCNCPFTCFoIFjZ+sLCInZZ2riDo7rw7xoAWQbTQymAhGoQgIYVgoRaKaFBBQRuNPwhiEk1y5M3qZObNbJwxm9kNvgMHdmfv+5w7d8677AAW/xnoYpsmZjOosI+CYQpGKTiI2QgKjlMwTgE9KkxQ4RRmC9iNWgou+gJMKlxmF+ahmsELWExBT0kRk+zRsZHxgisU3I2lg8ZsRDhYQYWHRvbHqHCCgnYq/DDEPGEeDaE5FAZKinfQOvMiXKyhwitDxGcKdgY2uZUKg0bMG3aguSqEULCFCh+NDb6goCkS66CRgqfGJr9QYXtFhVCwnwojxqI3WUCdH0PM0fS/F1DnxYSFj/yeayBzIV7ta0sN2qvgNHOo8WM6UU+FGx47Ue9fz6HGi42OH81MSAl7HaaLQ6E4QRMFzwIxL+lifcyB+S2By7GsQqiwiAq3jUXeUbApFOfgQIkN6lP+iBG7gYLXmQlhvL3e43ks92NymEtBPkGGu5jDfH/cGSyloG/GhcTaq7mZPBoouJ+oTIp8RIXViZPgTFNIjL3+pMIxQ+gOKrxPIeIPP9HFLmO99tiHfjpCYuz1AwtoC7mPwslQc5ie494cQbcroM1bKxjn4mi5utfH7MAqo67vTEOAyT4qLPPnd7GSggf/3D2XsNfrzGFhIGMbEzlNWiq8pYvNgTu+gIKrqbvniL0WD6l86GR2cZgK38suYnLNEV0Noc6g2HgGy7c3eMD+zV6HKNgbyo7CpRkTEBV0TSc2kOTdVPg6VfcctVf9+RzWhX7XA7MSIf4+noe6Y8Fa71pc9xxjr708iyWBTOwxMpE1h3QrE+rfBLci3TMVWnSL4VE/xN2o9Qd1oDnU2FWKChOhO6MNqWg4xX0rtEz98DtorbgIKceBaIXA3hFWvLT0HwsK3Sk5WI3PSH/q+QX9Vkga2DuSELa00sKWVkLY0koLW1oJYUsrLWxpVWFpNZZ8ORmlpJ5fIInndzJ6GWphYWGBLPALkqyXtXAcZGkAAAAASUVORK5CYII="> </a></div>
+  <h1 style="background-color:#FFFACD; width:170px; padding:4px; border-radius: 8px;">투자게시판</h1>
+  <article>
+  <div><button><a href="{% url 'boards:create' %}">글작성</a></button></div>
 
   {% for boardinfo in boardinfo %}
   <div>
-    <div><a href="{% url 'boards:detail' id=boardinfo.id %}">제목 : {{boardinfo.title}}</a></div>
-    <div>작성자 : {{boardinfo.userid.username}}</div>
-    <div>카테고리 : {{boardinfo.category.name}}</div>
-    <div>작성일 : {{boardinfo.date}}</div>
+    <div><a href="{% url 'boards:detail' id=boardinfo.id %}"style="font-size: 150%; font-weight: 500;">[{{boardinfo.category.name}}]{{boardinfo.title}}</a></div>
+    <div>{{boardinfo.userid.username}} {{boardinfo.date}}</div>
   </div>
   <br>
   {% endfor %}
+</article>
 </body>
 </html>

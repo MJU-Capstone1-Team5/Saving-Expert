@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     
     #구글 로그인
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.kakao',
+    # 'allauth.socialaccount.providers.kakao',
 ]
 
 MIDDLEWARE = [

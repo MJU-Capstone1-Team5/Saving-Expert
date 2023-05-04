@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}?after">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
 <body>
   <p><a href="{% url 'boards:board' %}" style="background-color:#FFFACD; width:80px; padding:4px; border-radius: 8px;">투자게시판</a></p>
   <article><p><div>게시물</div>
-  <div>[{{boardinfo.category.name}}] {{boardinfo.title}}</div>
+  <div style="font-size: 130%; font-weight: 400;">[{{boardinfo.category.name}}] {{boardinfo.title}}</div>
   <div>{{boardinfo.userid.username}} {{boardinfo.date}}</div></p>
   <div>{{boardinfo.context}}</div>
   <div>이미지 : <img src="media/{{boardinfo.boardimage}}" alt=""></div>
