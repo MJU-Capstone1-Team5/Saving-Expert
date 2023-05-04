@@ -2,25 +2,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}">
+ <style>
+ </style>
+ <link rel="stylesheet" type="text/css" href="{% static 'css/boards_style.css' %}?after">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
 <body>
-  <div><a href="{% url 'users:main'%}"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADBUlEQVR4nO1ZO2gUURQ9JiqiJiCCCqZQIpJglKCNCPFTCFoIFjZ+sLCInZZ2riDo7rw7xoAWQbTQymAhGoQgIYVgoRaKaFBBQRuNPwhiEk1y5M3qZObNbJwxm9kNvgMHdmfv+5w7d8677AAW/xnoYpsmZjOosI+CYQpGKTiI2QgKjlMwTgE9KkxQ4RRmC9iNWgou+gJMKlxmF+ahmsELWExBT0kRk+zRsZHxgisU3I2lg8ZsRDhYQYWHRvbHqHCCgnYq/DDEPGEeDaE5FAZKinfQOvMiXKyhwitDxGcKdgY2uZUKg0bMG3aguSqEULCFCh+NDb6goCkS66CRgqfGJr9QYXtFhVCwnwojxqI3WUCdH0PM0fS/F1DnxYSFj/yeayBzIV7ta0sN2qvgNHOo8WM6UU+FGx47Ue9fz6HGi42OH81MSAl7HaaLQ6E4QRMFzwIxL+lifcyB+S2By7GsQqiwiAq3jUXeUbApFOfgQIkN6lP+iBG7gYLXmQlhvL3e43ks92NymEtBPkGGu5jDfH/cGSyloG/GhcTaq7mZPBoouJ+oTIp8RIXViZPgTFNIjL3+pMIxQ+gOKrxPIeIPP9HFLmO99tiHfjpCYuz1AwtoC7mPwslQc5ie494cQbcroM1bKxjn4mi5utfH7MAqo67vTEOAyT4qLPPnd7GSggf/3D2XsNfrzGFhIGMbEzlNWiq8pYvNgTu+gIKrqbvniL0WD6l86GR2cZgK38suYnLNEV0Noc6g2HgGy7c3eMD+zV6HKNgbyo7CpRkTEBV0TSc2kOTdVPg6VfcctVf9+RzWhX7XA7MSIf4+noe6Y8Fa71pc9xxjr708iyWBTOwxMpE1h3QrE+rfBLci3TMVWnSL4VE/xN2o9Qd1oDnU2FWKChOhO6MNqWg4xX0rtEz98DtorbgIKceBaIXA3hFWvLT0HwsK3Sk5WI3PSH/q+QX9Vkga2DuSELa00sKWVkLY0koLW1oJYUsrLWxpVWFpNZZ8ORmlpJ5fIInndzJ6GWphYWGBLPALkqyXtXAcZGkAAAAASUVORK5CYII="> </a></div>
-  <h1 style="background-color:#FFFACD; width:170px; padding:4px; border-radius: 8px;">투자게시판</h1>
-  <article>
-  <div><button><a href="{% url 'boards:create' %}">글작성</a></button></div>
+  {% if user.is_authenticated %}
+  <header>
+    <div id="logo1">
+      <h1>
+        <a href="{% url 'users:main'%}"style="display:inline;"> <img src="{% static 'image/logo.png' %}" style="width:200px; height:100px; margin: 0px;"> </a>
+      </h1>
+    </div>
 
+    <nav>
+        <ul id="top_menu">
+          <li style="margin-left: 400px;"><a href="{% url 'boards:board' %}">투자게시판</a></li>
+          <li style="margin-left: 400px;">
+            <a href="#">간편주식데이터<span class="arrow"> ▼</span></a>
+            <ul>
+              <li><a href="#">실시간 주가 정보</a></li>
+              <li><a href="#">주가 예측</a></li>
+            </ul>
+          </li>
+        </ul>
+    </nav>
+
+    
+    <div id="sign_state" style="position: absolute; left: 1000px; top: 0px;">
+      <span class="display-7 fw-bold" style="margin-right: 30px;">{{user.username}}님이 로그인중  </span>
+      <span style="margin-right: 30px;">
+        <a href="{% url 'users:log_out'%}"\>로그아웃  </a>
+      </span>
+      <span style="margin-right: 30px; padding-top: 50px;"><a href="/myuser/{{user.id}}"><img src="https://img.icons8.com/pastel-glyph/64/919191/gender-neutral-user.png"/></a></span>
+    </div>
+</header><hr />
+
+ 
+    {% else %}  
+    <div class="before_login">
+      <a href="{% url 'users:log_in' %}"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEBklEQVR4nO2aTYgcRRTHnwFdIwYxfgQV0SBR8SDGk1FRbxKiRlHiB8Gv6EHJEgXxaAuCMDg97/+vHgZblD14UcR4UEECfkGEiIIfwYMegkZFA5IIWTUadeSxdSjbXjazO85M9dYPHjRN1b+63tRUvXpVIolEIpFIJBKJRCKRSCQaAIA1AC71tkaWK3merwRwD8mdAH4h2a/YLIBXVfVuKytNJ8uyFQDuA/BtjTPms/3OuXutrjSRbrd7MsnXBnBI1d4sy/IUaRJFUZwG4POazr4LYDvJ9Z1O5ywzeyY5DeC9annTyPN8tTSBsiyPB/BOpZN7SV67UF1VvQ7AFxXnvG2aEjsAnq445fVWq7XqWOtbWQBvVJzzlMRMnufnVFadj8uyPGlQnZmZmRNJ7gkc81u73T5XYgVAL+xMt9s9b7Fazrm1AI4Eel2JkSzLVpD8MRgtnaVqkkTgmB+iXMJJXhnOC6p62VI1O53O5ZX56gqJDZIPhL/uMDT7/f5x4SgEsE1iA0AW/LJ7hqj7YaD7hMQGyXbQgV1D1N0V6LYlNgA8Hgz5T4eoG0bQj0lsANgaOOYwyamlavp4ZjbQvUtiwzm3NlxBnHMbh6C5qbLSnS8xgn8P+7eGPL98IrEC4NHKqNm0WC1VvamyX9ohsUJyCsDXQWcOAlg3qE5RFBeSPBTo7BvGnDVWVPVmAH+HwZ6qbhgwgg6DOtO6UZoAyScrofzvANjr9c6cr44lxUkWAP6o1I0vqFsglO/UZPCOWuLJ8iskHwLwsD37xNbRmgxeblrSNEjeH8YhA9isJcSlyRRFcTbJ52r+Iv8xKwPgWcsFy3Ihz/PVPjp+EcBuW2m87fbvtvZ6vVPH/Z2JRCLRGFqt1ipVvYbkIyRbfpV6xcye7Z3thayMHe1Kk1HViyzd6Xfcfw0Qw1jZz6yuaUgTyOaOUG6zg7ZFBHXzxTYfAbg12ghY5zaPdQf5oX1n4b/dhSH5vJk9+3ffL+Ag094ssUDyDD9X1HXoEIAZ69CxRLM+St5sdQD8PI+DXm6326fLJOOc2wjgQE0H9qrq7UvJofjczh3+pkTVOQdU9XqZRFT1wZod8X6SW4Z5lOrnrS0kv6nZqW+b9HxLH8AL/+cNKNP281J/IvM1AHbUJKFGdqzhnLszvAXhbVrGCYAbAPwZjJLD4/ivW/oTwE9h7APgFhkHANaFl4Ls/guAq8c4x20g+WuY3CJ5wUg/IpubAN8PE9SWP5ExY0nyygj+YKR3aEhOVybaZ2RC8Pnj8Nu2j6xxkl8FDX85Sbe3syw7IYy47ftG1jjJl3yjR5xzV8mEYTevbM7zztk5soZJTvkj00tkQnHOXWzfuJhboolEIpFIJBKJhCwb/gFksR3uX/IF3wAAAABJRU5ErkJggg=="></a>
+    </div>
+    {% endif %}
+  <div class="article_btn"><button style="position:relative; left:1380px;"><a href="{% url 'boards:create' %}"style="color:white;">글작성</a></button></div>
+  <table>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>작성일시</th>
   {% for boardinfo in boardinfo %}
-  <div>
-    <div><a href="{% url 'boards:detail' id=boardinfo.id %}"style="font-size: 150%; font-weight: 500;">[{{boardinfo.category.name}}]{{boardinfo.title}}</a></div>
-    <div>{{boardinfo.userid.username}} {{boardinfo.date}}</div>
-  </div>
-  <br>
+    <tr><td><a href="{% url 'boards:detail' id=boardinfo.id %}"style="font-size: 150%; font-weight: 500; color:black;">[{{boardinfo.category.name}}]{{boardinfo.title}}</a></td>
+      <td style="text-align: center;">{{boardinfo.userid.username}}</td><td style="text-align: center;"> {{boardinfo.date}}</td></tr>
   {% endfor %}
-</article>
+</table>
 </body>
 </html>

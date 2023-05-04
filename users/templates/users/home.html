@@ -9,68 +9,21 @@
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/style_2.css' %}">
 </head>
-<!--
-<body>
-  <h1>
-    <div class="container" id="main">
-      <img src="{% static 'image/icon2.png' %}" style="width:55px; height:55px; margin: 25px;"> 내일은 주식왕
-    </div>
-  </h1>
-  {% if user.is_authenticated%}
-
-  <div class="container" id="box">
-    <div class="container" id="box1">
-      <div class="category1">
-        <a href="{% url 'boards:board' %}"><img src="{% static 'image/icon4.png' %}" style="width:40px; height:40px;">투자게시판</a>
-      </div>
-    
-      <div class="category2">
-        <span><img src="{% static 'image/icon3.png' %}" style="width:40px; height:40px;">간편주식데이터</span>
-      </div>
-    </div>
-  
-    <div class="container" id="box2">
-      <div class="jpg">
-        <img src="{% static 'image/backgroundimg.png' %}" style="width: 120%; height: 100%;">
-      </div>
-    </div>
-  </div>
-  
-  <div class="container" id="box3">
-    <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6><br />
-    <div class="after_login"><a href="/myuser/{{user.id}}">내 페이지가기</a></div>
-    <div class="after_login">
-      <a href="{% url 'users:log_out'%}"\>Logout</a>
-    </div>
-  </div>
-
-  <div class="container" id="box4">
-    {% else %}  
-    <div class="before_login">
-      <a href="{% url 'users:log_in' %}">Login</a>
-    </div>
-    <div class="before_login">
-      <a href="{% url 'users:sign_up' %}">Signup</a>
-    </div>
-    {% endif %}
-  </div>
-</body>
-</html> -->
 
 <body>
-    <div class="container">
+    <div id="container">
       {% if user.is_authenticated%}
         <header>
             <div id="logo1">
               <h1>
-                  <img src="{% static 'image/title1.png' %}" style="width:200px; height:100px; margin: 0px;">
+                  <img src="{% static 'image/logo.png' %}" style="width:200px; height:100px; margin: 0px;">
               </h1>
             </div>
 
             <nav>
                 <ul id="top_menu">
-                  <li><a href="{% url 'boards:board' %}">투자게시판</a></li>
-                  <li>
+                  <li style="margin-left: 400px;"><a href="{% url 'boards:board' %}">투자게시판</a></li>
+                  <li style="margin-left: 400px;">
                     <a href="#">간편주식데이터<span class="arrow"> ▼</span></a>
                     <ul>
                       <li><a href="#">실시간 주가 정보</a></li>
@@ -82,11 +35,12 @@
 
             <div id="sign_state" style="position: absolute; left: 1000px; top: 0px;">
               <!-- <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6> -->
-              <span class="display-7 fw-bold">{{user.username}}님이 로그인중  </span>
-              <span>
+              <span class="display-7 fw-bold" style="margin-right: 30px;">{{user.username}}님이 로그인중  </span>
+              <span style="margin-right: 30px;">
                 <a href="{% url 'users:log_out'%}"\>로그아웃  </a>
               </span>
-              <span><a href="/myuser/{{user.id}}"><img src="{% static 'image/person.png'}"></a></span>
+              <!-- <div><a href="/myuser/{{user.id}}"><img src="{% static 'image/person.png'}" width="10px;"></a></div> -->
+              <span style="margin-right: 30px; padding-top: 50px;"><a href="/myuser/{{user.id}}"><img src="https://img.icons8.com/pastel-glyph/64/919191/gender-neutral-user.png"/></a></span>
             </div>
         </header><hr />
         
