@@ -1,4 +1,7 @@
-
+header{ 
+    width:100%;
+    height:100px;
+  }
 
 article{
     background-color:white;
@@ -40,3 +43,18 @@ tr{
 a{
     text-decoration-line: none;
 }
+
+li{
+    list-style-type:none;
+    display:inline;
+}
+
+hr{
+    color:#919191;
+}
+
+.top_menu:after{display:block; content:''; clear:both;}
+.top_menu > li{float:left;margin-right:10px;}
+.top_menu > li:hover .sub_menu {display:block;}
+.top_menu .sub_menu{display:none; position:absolute; left:900px;}
+.top_menu .sub_menu a{color:#919191;text-align:center;}

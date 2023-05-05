@@ -9,10 +9,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style_2.css' %}">
 </head>
 <body>
-  <div class="container" id="login">
+  <div id="container">
     <form action="{% url 'users:log_in' %}" method="POST" class="login_local_form">
       {% csrf_token %}
         <span class="login_title">
@@ -56,7 +56,7 @@
             <img src="{% static 'image/google.png' %}" class="login_social_img3">
          </button>
          <button type="submit" class="login_social_btn2">
-          <img src="{% static 'image/kakao3.png' %}" class="login_social_img3">
+          <img src="{% static 'image/kakao4.png' %}" class="login_social_img3" style="height: 45px;">
          </button>
        </form>
       </div>

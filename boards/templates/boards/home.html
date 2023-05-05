@@ -11,15 +11,49 @@
   <title>Document</title>
 </head>
 <body>
-  <a href="{% url 'users:main'%}"style="display:inline;"> <img src="{% static 'image/logo.png' %}" width="142;" style="display:inline;"> </a>
-  {% if user.is_authenticated%}
-  <h6 class="display-7 fw-bold" style="display:inline;">{{user.username}}님이 로그인중</h6> <a href="/myuser/{{user.id}}"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEBklEQVR4nO2aTYgcRRTHnwFdIwYxfgQV0SBR8SDGk1FRbxKiRlHiB8Gv6EHJEgXxaAuCMDg97/+vHgZblD14UcR4UEECfkGEiIIfwYMegkZFA5IIWTUadeSxdSjbXjazO85M9dYPHjRN1b+63tRUvXpVIolEIpFIJBKJRCKRSCQaAIA1AC71tkaWK3merwRwD8mdAH4h2a/YLIBXVfVuKytNJ8uyFQDuA/BtjTPms/3OuXutrjSRbrd7MsnXBnBI1d4sy/IUaRJFUZwG4POazr4LYDvJ9Z1O5ywzeyY5DeC9annTyPN8tTSBsiyPB/BOpZN7SV67UF1VvQ7AFxXnvG2aEjsAnq445fVWq7XqWOtbWQBvVJzzlMRMnufnVFadj8uyPGlQnZmZmRNJ7gkc81u73T5XYgVAL+xMt9s9b7Fazrm1AI4Eel2JkSzLVpD8MRgtnaVqkkTgmB+iXMJJXhnOC6p62VI1O53O5ZX56gqJDZIPhL/uMDT7/f5x4SgEsE1iA0AW/LJ7hqj7YaD7hMQGyXbQgV1D1N0V6LYlNgA8Hgz5T4eoG0bQj0lsANgaOOYwyamlavp4ZjbQvUtiwzm3NlxBnHMbh6C5qbLSnS8xgn8P+7eGPL98IrEC4NHKqNm0WC1VvamyX9ohsUJyCsDXQWcOAlg3qE5RFBeSPBTo7BvGnDVWVPVmAH+HwZ6qbhgwgg6DOtO6UZoAyScrofzvANjr9c6cr44lxUkWAP6o1I0vqFsglO/UZPCOWuLJ8iskHwLwsD37xNbRmgxeblrSNEjeH8YhA9isJcSlyRRFcTbJ52r+Iv8xKwPgWcsFy3Ihz/PVPjp+EcBuW2m87fbvtvZ6vVPH/Z2JRCLRGFqt1ipVvYbkIyRbfpV6xcye7Z3thayMHe1Kk1HViyzd6Xfcfw0Qw1jZz6yuaUgTyOaOUG6zg7ZFBHXzxTYfAbg12ghY5zaPdQf5oX1n4b/dhSH5vJk9+3ffL+Ag094ssUDyDD9X1HXoEIAZ69CxRLM+St5sdQD8PI+DXm6326fLJOOc2wjgQE0H9qrq7UvJofjczh3+pkTVOQdU9XqZRFT1wZod8X6SW4Z5lOrnrS0kv6nZqW+b9HxLH8AL/+cNKNP281J/IvM1AHbUJKFGdqzhnLszvAXhbVrGCYAbAPwZjJLD4/ivW/oTwE9h7APgFhkHANaFl4Ls/guAq8c4x20g+WuY3CJ5wUg/IpubAN8PE9SWP5ExY0nyygj+YKR3aEhOVybaZ2RC8Pnj8Nu2j6xxkl8FDX85Sbe3syw7IYy47ftG1jjJl3yjR5xzV8mEYTevbM7zztk5soZJTvkj00tkQnHOXWzfuJhboolEIpFIJBKJhCwb/gFksR3uX/IF3wAAAABJRU5ErkJggg=="></a>
-    {% else %}  
-    <div class="before_login">
-      <a href="{% url 'users:log_in' %}"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEBklEQVR4nO2aTYgcRRTHnwFdIwYxfgQV0SBR8SDGk1FRbxKiRlHiB8Gv6EHJEgXxaAuCMDg97/+vHgZblD14UcR4UEECfkGEiIIfwYMegkZFA5IIWTUadeSxdSjbXjazO85M9dYPHjRN1b+63tRUvXpVIolEIpFIJBKJRCKRSCQaAIA1AC71tkaWK3merwRwD8mdAH4h2a/YLIBXVfVuKytNJ8uyFQDuA/BtjTPms/3OuXutrjSRbrd7MsnXBnBI1d4sy/IUaRJFUZwG4POazr4LYDvJ9Z1O5ywzeyY5DeC9annTyPN8tTSBsiyPB/BOpZN7SV67UF1VvQ7AFxXnvG2aEjsAnq445fVWq7XqWOtbWQBvVJzzlMRMnufnVFadj8uyPGlQnZmZmRNJ7gkc81u73T5XYgVAL+xMt9s9b7Fazrm1AI4Eel2JkSzLVpD8MRgtnaVqkkTgmB+iXMJJXhnOC6p62VI1O53O5ZX56gqJDZIPhL/uMDT7/f5x4SgEsE1iA0AW/LJ7hqj7YaD7hMQGyXbQgV1D1N0V6LYlNgA8Hgz5T4eoG0bQj0lsANgaOOYwyamlavp4ZjbQvUtiwzm3NlxBnHMbh6C5qbLSnS8xgn8P+7eGPL98IrEC4NHKqNm0WC1VvamyX9ohsUJyCsDXQWcOAlg3qE5RFBeSPBTo7BvGnDVWVPVmAH+HwZ6qbhgwgg6DOtO6UZoAyScrofzvANjr9c6cr44lxUkWAP6o1I0vqFsglO/UZPCOWuLJ8iskHwLwsD37xNbRmgxeblrSNEjeH8YhA9isJcSlyRRFcTbJ52r+Iv8xKwPgWcsFy3Ihz/PVPjp+EcBuW2m87fbvtvZ6vVPH/Z2JRCLRGFqt1ipVvYbkIyRbfpV6xcye7Z3thayMHe1Kk1HViyzd6Xfcfw0Qw1jZz6yuaUgTyOaOUG6zg7ZFBHXzxTYfAbg12ghY5zaPdQf5oX1n4b/dhSH5vJk9+3ffL+Ag094ssUDyDD9X1HXoEIAZ69CxRLM+St5sdQD8PI+DXm6326fLJOOc2wjgQE0H9qrq7UvJofjczh3+pkTVOQdU9XqZRFT1wZod8X6SW4Z5lOrnrS0kv6nZqW+b9HxLH8AL/+cNKNP281J/IvM1AHbUJKFGdqzhnLszvAXhbVrGCYAbAPwZjJLD4/ivW/oTwE9h7APgFhkHANaFl4Ls/guAq8c4x20g+WuY3CJ5wUg/IpubAN8PE9SWP5ExY0nyygj+YKR3aEhOVybaZ2RC8Pnj8Nu2j6xxkl8FDX85Sbe3syw7IYy47ftG1jjJl3yjR5xzV8mEYTevbM7zztk5soZJTvkj00tkQnHOXWzfuJhboolEIpFIJBKJhCwb/gFksR3uX/IF3wAAAABJRU5ErkJggg=="></a>
-    </div>
+  <div class="container">
+    {% if user.is_authenticated%}
+      <header>
+          <div id="logo1">
+            <h1>
+              <a href="{% url 'users:main'%}"><img src="{% static 'image/logo.png' %}" style="width:180px; margin: 0px;">
+                <hr style="color:#919191;">
+            </h1>
+          </div>
+          <nav>
+            <ul class="top_menu">
+              <li style="margin-left: 400px;"><a href="{% url 'boards:board' %}" style="color:#919191;">투자게시판</a></li>
+              <li style="margin-left: 400px;">
+                <a href="#" style="color:#919191;">간편주식데이터<span class="arrow"> ▼</span></a>
+                <ul class="sub_menu">
+                  <li><a href="#" style="color:#919191;">실시간 주가 정보</a></li><br>
+                  <li><a href="#" style="color:#919191;">주가 예측</a></li>
+                </ul>
+              </li>
+            </ul>
+        </nav>
+        <div id="sign_state" style="position: absolute; left: 1100px; top: 0px;">
+          <!-- <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6> -->
+          <span class="display-7 fw-bold" style="margin-right: 30px;">{{user.username}}님이 로그인중  </span>
+          <span style="margin-right: 30px;">
+            <a href="{% url 'users:log_out'%}">로그아웃  </a>
+          </span>
+          <!-- <div><a href="/myuser/{{user.id}}"><img src="{% static 'image/person.png'}" width="10px;"></a></div> -->
+          <span style="margin-right: 30px; position:relative; top:10px;"><a href="/myuser/{{user.id}}"><img src="https://img.icons8.com/pastel-glyph/64/919191/gender-neutral-user.png"/></a></span>
+        </div>
+        {% else %}
+        <div class="before_login">
+          <span style="position: absolute; left: 1300px; top: 0px;">
+            <a href="{% url 'users:log_in' %}">로그인</a>
+          </span>
+          <span style="position: absolute; left: 1450px; top: 0px;">|</span>
+          <span style="position: absolute; left: 1500px; top: 0px;">
+            <a href="{% url 'users:sign_up' %}">회원가입</a>
+          </span>
+        </div>
     {% endif %}
-  <div><button style="position:relative; left:1380px;"><a href="{% url 'boards:create' %}"style="color:white;">글작성</a></button></div>
+    
+  <div><button style="position:relative; left:1370px;"><a href="{% url 'boards:create' %}"style="color:white;">글작성</a></button></div>
   <table>
     <th>제목</th>
     <th>작성자</th>
