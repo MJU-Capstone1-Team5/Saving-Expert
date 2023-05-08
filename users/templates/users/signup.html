@@ -9,10 +9,18 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?after">
 </head>
 <body>
+    <header>
+     <div class="logo">
+       <h1>
+         <a href="{% url 'users:main'%}"style="display:inline;"> <img src="{% static 'image/logo.png' %}" style="width:200px; height:100px; margin: 0px;"> </a>
+       </h1><hr/>
+     </div>
+    </header>
+
     <div class="container" id="sign_up">
       <form action="{% url 'users:sign_up' %}" method="POST" class="signup_form">
         {% csrf_token %}
-      <span class="signup_title">- Sign-up -</span>
+      <span class="signup_title">Sign-up</span>
       <div>
         <span class="signup_label">Username:</span>
         {{form.username}}

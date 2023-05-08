@@ -1,142 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
-body{
-    background-color: #FFDA77;
-    padding: 10px;
-    margin: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gothic+A1:wght@200&display=swap');
+* {
+    box-sizing: border-box;
     font-family: 'Black Han Sans', sans-serif;
-    font-weight: lighter;
+    font-family: 'Gothic A1', sans-serif;
+    /* 글꼴 이름: Noto Sans Korean */
 }
-
-div{
-    width: 1200px;
-    margin: 20px auto;
-}
-
-.container{
-    display: flex;
-    text-align: center;
-}
-
-#box{
-    flex-direction: row;
-}
-
-#box1{
-    flex-direction: column;
-}
-
-.before_login{
-    flex-direction: row;
-    justify-content: space-between;
-}
-.category1, .category2
-{
-    width: 70%;
-    height: 100px;
-    margin-top: 70px;
-    margin-bottom: 100px;
-    margin-left: 50px;
-    margin-right: 50px;
-    float: left;
-
-    border: 10px solid black;
-    padding: 10px;
-    text-align: center;
-    color: #FF8C00;
-    border-radius: 10px;
-    letter-spacing: 0.2em;
-    font-size: 250%;
-    font-weight: 500;
-    border-width: 5px;
-    line-height: 100px;
-}
-.category1 a[href]{
-    color: #FF8C00;
-}
-/* 메인페이지 카테고리 */
-
-.before_login{
-    float: left;
-    width: 400px;
-    height: 100px;
-    padding: 10px;
-    margin: 200px;
-    text-align: center;
-
-    border-radius: 10px;
-    letter-spacing: 0.2em;
-    font-size: 300%;
-    font-weight: 500;
-    border-width: 5px;
-    line-height: 100px;
-}
-/* 로그인 전 메인페이지 화면 */
-
-.after_login, h6{
-    float: left;
-    width: 500px;
-    height: 50px;
-    padding: 10px;
-    margin: 100px;
-    text-align: center;
-    border-radius: 10px;
-    letter-spacing: 0.2em;
-    font-size: 150%;
-    font-weight: 500;
-    border-width: 5px;
-    line-height: 50px;
-}
-/* 로그인 후 메인페이지 하단 부분 */
-h6{
-    color: #FF8C00;
-}
-/* xx님이 로그인중 */
-h6 a[href]{
-    color: #FF8C00;
-}
-
-.after_login a[href], .before_login a[href]{
-    color: black;
-}
-
-#main{
-    justify-content: center;
-    height: 120px;
-    background-color: #FF8C00;
-
-    width: 90%;
-    border: 10px solid #FF8C00;
-    text-align: center;
-
-    color: #FFDA77;
-
-    border-radius: 10px;
-    letter-spacing: 0.2em;
-    font-size: 250%;
-    font-weight: 500;
-    border-width: 20px;
-    line-height: 120px;
-}
-
-.jpg{
-    width: 500px;
-    height: 600px;
-}
-/* 메인페이지 주식 그림 */
-
-.category1 a:hover, .category1 a:focus{
-    color: #fff;
-}
-.before_login a:hover, .before_login a:focus{
-    color: #FF8C00;
-}
-.after_login a:hover, .after_login a:focus{
-    color: #FF8C00;
+* div :not(header){
+    margin:20px;
 }
 
 /* login.html */
 
-.login_local_form{
+.logo{
+    text-align: center;
+}
+/* 로고(로그인, 회원가입 창) */
+
+.login_local_form, .signup_form{
     width: 90%;
     padding: 10px;
     margin: 10px;
@@ -149,7 +29,7 @@ h6 a[href]{
 }
 /* 로그인 창(소셜 로그인 제외) */
 
-.social_title, .loginbox3{
+.social_title{
     font-size: larger;
 }
 
@@ -160,149 +40,163 @@ h6 a[href]{
 }
 #login_other{
     flex-direction: column;
+    text-align: center;
 }
 .social{
     flex-direction: column;
+    margin-top: 70px;
+    /* margin-right: 50px; */
 }
 .signup{
     flex-direction: column;
 }
+.login_local_form{
+    text-align: center;
+}
+/* 전체 가운데 정렬 */
+
 .login_social_img3{
     width: 100%;
     height: 50%;
 }
 input[type=text], input[type=password]{
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid black;
-    border-radius: 4px;
-    box-sizing: border-box;
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
 }
 
 .login_loginbtn, .signup_btn{
     width: 300px;
     height: 40px;
-    background-color: #FF8C00;
-    color: white;
+    background-color: #4b64ea;
+    color: #e9e9e9;
     font-size: 25px;
-    font-family: 'Black Han Sans', sans-serif;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     letter-spacing: 0.2em;
 }
-/* 로그인, 회원가입 버튼 */
+/* 회원가입 생성하기 버튼 */
 
 .loginbox4{
     justify-content: space-around;
     width: 300px;
-    height: 30px;
+    height: 40px;
     padding: 10px;
-    margin-left: 35%;
+    margin-left: 36%;
     margin-right: 40%;
     text-align: center;
-    border-radius: 10px;
+    line-height: 20px;
+    border-radius: 5px;
     letter-spacing: 0.2em;
-    font-size: 150%;
-    font-weight: 500;
-    border-width: 5px;
-
-    background:#FF8C00;
+    font-size: 25px;
+    background:#d9d9d9;
 }
 .loginbox4 a[href]{
-    color: #FFDA77;
-}
-.loginbox4 a:hover, .loginbox4 a:focus{
     color: white;
 }
+.loginbox4 a:hover, .loginbox4 a:focus{
+    color: #4b64ea;
+}
+/* 로그인, 회원가입 버튼 */
+
+.login_title, .social_title{
+    color: #4b64ea;
+    font-size: 150%;
+    font-weight: bold;
+}
+/* 로그인 페이지 제목 & 소셜 로그인 제목 */
+
+.login_social_btn1{
+    width: 200px;
+    height: auto;
+    padding: 0px;
+    text-align: center;
+}
+.login_social_btn2{
+    width: 200px;
+    height: auto;
+    padding: 0;
+    text-align: center;
+}
+/* 소셜 로그인 버튼 */
 
 /* signup.html */
 .signup_title{
     font-size: 200%;
-}
-#sign_up{
-    border: 5px solid black;
-    width: 70%;
-    text-align: center;
-    height: 600px;
-    line-height: 80px;
+    color: #4b64ea;
 }
 
 /* myuser.html */
 #user{
-    flex-direction: column;
-    font-size: 200%;
-    font-weight: 100;
-    border: 5px solid black;
-    width: 70%;
+    display: flex;
     text-align: center;
-    height: 100%;
-    line-height: 80px;
-
+    flex-direction: row;
+    font-size: 200%;
+    /* text-align: center; */
 }
+.user_img{
+    width: 600px;
+    height: 400px;
+}
+.user_content{
+    flex-direction: column;
+}
+.user_info{
+    text-align: left;
+}
+/* 배치 */
+
 .modify_btn{
     width: 200px;
     height: 50px;
+    margin: 50px;
     padding: 10px;
     border-radius: 10px;
     letter-spacing: 0.2em;
-    font-size: 100%;
+    font-size: 80%;
     font-weight: 500;
     border-width: 5px;
-    line-height: 50px;
+    line-height: 30px;
 
-    background:#FF8C00;
+    background-color: #4b64ea;
 }
 .modify_btn a[href]{
-    color: #FFDA77;
+    color: #d9d9d9;
 }
 .modify_btn a:hover, .modify_btn a:focus{
-    color: white;
+    color: #919191;
 }
 
 /* 개인정보 수정 */
 #modify{
-    flex-direction: column;
-    font-size: 130%;
-    font-weight: 100;
-    border: 5px solid black;
-    width: 70%;
+    display: flex;
     text-align: center;
-    height: 100%;
-    line-height: 80px;
-}
-.modify_form{
-    width: 90%;
-    padding: 10px;
-    margin: 10px;
+    flex-direction: row;
+    font-size: 200%;
     text-align: center;
-    border-radius: 10px;
-    letter-spacing: 0.2em;
-    font-size: 150%;
-    font-weight: lighter;
-    border-width: 5px;
+    margin-left: 600px;
 }
+
 textarea{
     padding: 10px;
     margin: 5px 0;
     border: 1px solid black;
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: #FFDA77;
 }
 input[type=checkbox]{
     width: 50px;
     height: 30px;
 }
-input[type=submit]{
+/* input[type=submit]{
     width: 300px;
     height: 40px;
-    background-color: #FF8C00;
-    color: white;
+    background-color: #4b64ea;
+    color: #d9d9d9;
     font-size: 25px;
-    font-family: 'Black Han Sans', sans-serif;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     letter-spacing: 0.2em;
-}
+} */

@@ -13,10 +13,10 @@ ul{
 }
 /* <ul>태그의 불릿 기호 없애기 */
   
-/* #container {
+#container {
     margin:0 auto;
     width:1200px;
-  } */
+  }
 
 a {
    text-decoration:none;  /* 텍스트 링크 밑줄 없애기  */
@@ -36,6 +36,15 @@ header{
     padding-left: 20px;
 }
 /* 내일은 주식왕 로고 */
+
+.login_logo{
+    float: center;
+    /* width:250px;
+    height:100px; */
+    line-height: 100px;
+    padding-left: 20px;
+}
+/* 로그인창에서 로고 */
 
 #sign_state{
     float:right; 
@@ -104,10 +113,59 @@ nav{
   /* ~내비게이션 영역 */
 
 .before_login{
-    color: #d9d9d9;
+    color: #919191;
     font-size: 200%;
 }
 .before_login a[href]{
-    color: #d9d9d9;
+    color: #4b64ea;
 }
 /* 로그인 전 로그인/회원가입 버튼 */
+
+/*   이미지 슬라이드 쇼 영역    */
+
+#slide_show {   
+  clear:both;   /* 플로팅 해제 */
+  /* width:100%; */
+  width: 1680px;
+  height:900px;
+  overflow:hidden;   /* 영역 넘치면 감춤 */ 
+  position: relative;
+}
+#slides {
+  position: absolute;
+}
+
+#slides > img {
+  /* width:100%; */
+  width: 1680px;
+  /* height: 200%; */
+  float:left;  /* 가로로 배치 */
+}
+
+.slide_btn{
+  position: absolute;
+  height:100%;  /* 위아래 가득 차게 */ 
+  top:0;
+  border:none; 
+  padding:20px;
+  background-color: transparent;
+  color:black; 
+  font-weight:800;
+  font-size: 24px;
+  opacity: 0.5;
+}
+#prev {
+  left:0;  /* 왼쪽으로 붙여서 */ 
+}
+#next {
+  right:0;  /* 오른쪽으로 붙여서 */ 
+}
+.slide_btn:hover {
+  background-color:#222;  /* 짙은 회색 배경 */
+  color:#fff;   /* 흰색 화살표 */ 
+  opacity:0.6;   /* 불투명도를 조금 높임 */ 
+  cursor:pointer;  /* 커서 모양을 포인터로 */ 
+}
+.slide_btn:focus {
+  outline:0;  /* 아웃트라인 없앰 */
+}

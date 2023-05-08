@@ -9,14 +9,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style_2.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?after">
 </head>
 <body>
-  <div id="container">
+  <div id="container_login">
+    <header>
+      <div class="logo">
+        <h1>
+          <a href="{% url 'users:main'%}"style="display:inline;"> <img src="{% static 'image/logo.png' %}" style="width:200px; height:100px; margin: 0px;"> </a>
+        </h1><hr/>
+      </div>
+    </header>
+
     <form action="{% url 'users:log_in' %}" method="POST" class="login_local_form">
       {% csrf_token %}
         <span class="login_title">
-          - Login -
+          Login
         </span>
 
             <div class="login_id">
@@ -34,17 +42,27 @@
             </div>
 
           <button type="submit" class="login_loginbtn">
-            login
+            로그인
           </button>
         </form>
   </div>
 
-  <div class="container" id="login_other">
+  <div class="container_other" id="login_other">
+    <div class="signup">
+      <!-- <div class="loginbox3">
+        or, New acount?
+        <a>👉Sign up HERE!<br></a>
+      </div> -->
+                
+      <div class="loginbox4"><a href="{% url 'users:sign_up' %}">회원가입</a></div>
+    </div>
+
     <div class="social">
 
       <div class="loginbox1">
-        <span class="social_title">
-          or, Social Login<br>
+        <span class="social_title" style="color: #4b64ea;">
+          <!-- or, Social Login<br> -->
+          SNS 계정으로 로그인 하기
         </span>
       </div>
   
@@ -53,26 +71,16 @@
         <form action="{% provider_login_url 'google' %}" method="post" class="social">
           {% csrf_token %}
           <button type="submit" class="login_social_btn1">
-            <img src="{% static 'image/google.png' %}" class="login_social_img3">
+            <img src="{% static 'image/google.png' %}" class="login_social_img3" style="text-align: center;">
          </button>
          <button type="submit" class="login_social_btn2">
-          <img src="{% static 'image/kakao4.png' %}" class="login_social_img3" style="height: 45px;">
+          <img src="{% static 'image/kakao4.png' %}" class="login_social_img3" style="text-align: center;">
          </button>
        </form>
       </div>
     </div>
   
-    <div class="signup">
-      <div class="loginbox3">
-        or, New acount?
-        <a>👉Sign up HERE!<br></a>
-      </div>
-                
-      <div class="loginbox4"><a href="{% url 'users:sign_up' %}">Signup</a></div>
-    </div>
-  </div>
-
-             
+  </div>             
   
           
 </body>

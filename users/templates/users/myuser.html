@@ -6,14 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?after">
 </head>
 <body>
+  <header>
+    <div class="logo">
+      <h1>
+        <a href="{% url 'users:main'%}"style="display:inline;"> <img src="{% static 'image/logo.png' %}" style="width:200px; height:100px; margin: 0px;"> </a>
+      </h1><hr/>
+    </div>
+  </header>
+
   <div class="container" id="user">
-    <div class="user_name"> 사용자 : {{myuser.username}}님이</div>
-    <div class="user_img">이미지 : <img src="media/{{myuser.userimage}}" alt=""></div>
-    <div class="intro"> 자기소개 : {{ myuser.usermemo }} </div>
-    <div class="modify_btn"> <a href="{% url 'users:myusercreate' id=user.id%}">수정하기</a> </div>
+    <div class="user_img"><img src="media/{{myuser.userimage}}" alt="" style="width: 600px; height: 400px;"></div>
+    <div class="user_content">
+      <div class="user_info">
+        <div>사용자 : {{myuser.username}}님이</div>
+        <div>자기소개 : {{ myuser.usermemo }}</div>
+      </div>
+      <div class="modify_btn"> <a href="{% url 'users:myusercreate' id=user.id%}">수정하기</a> </div>
+    </div>
   </div>
 </body>
 </html>

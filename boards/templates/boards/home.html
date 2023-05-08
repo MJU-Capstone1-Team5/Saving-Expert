@@ -1,4 +1,4 @@
-{% load static %}
+<!-- {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,6 +49,74 @@
     </div>
     {% endif %}
   <div class="article_btn"><button style="position:relative; left:1380px;"><a href="{% url 'boards:create' %}"style="color:white;">글작성</a></button></div>
+  <table>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>작성일시</th>
+  {% for boardinfo in boardinfo %}
+    <tr><td><a href="{% url 'boards:detail' id=boardinfo.id %}"style="font-size: 150%; font-weight: 500; color:black;">[{{boardinfo.category.name}}]{{boardinfo.title}}</a></td>
+      <td style="text-align: center;">{{boardinfo.userid.username}}</td><td style="text-align: center;"> {{boardinfo.date}}</td></tr>
+  {% endfor %}
+</table>
+</body>
+</html> -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <style>
+ </style>
+ <link rel="stylesheet" type="text/css" href="{% static 'css/boards_style.css' %}?after">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    {% if user.is_authenticated%}
+      <header>
+          <div id="logo1">
+            <h1>
+              <a href="{% url 'users:main'%}"><img src="{% static 'image/logo.png' %}" style="width:180px; margin: 0px;">
+                <hr style="color:#919191;">
+            </h1>
+          </div>
+          <nav>
+            <ul class="top_menu">
+              <li style="margin-left: 400px;"><a href="{% url 'boards:board' %}" style="color:#919191;">투자게시판</a></li>
+              <li style="margin-left: 400px;">
+                <a href="#" style="color:#919191;">간편주식데이터<span class="arrow"> ▼</span></a>
+                <ul class="sub_menu">
+                  <li><a href="#" style="color:#919191;">실시간 주가 정보</a></li><br>
+                  <li><a href="#" style="color:#919191;">주가 예측</a></li>
+                </ul>
+              </li>
+            </ul>
+        </nav>
+        <div id="sign_state" style="position: absolute; left: 1100px; top: 0px;">
+          <!-- <h6 class="display-7 fw-bold">{{user.username}}님이 로그인중</h6> -->
+          <span class="display-7 fw-bold" style="margin-right: 30px;">{{user.username}}님이 로그인중  </span>
+          <span style="margin-right: 30px;">
+            <a href="{% url 'users:log_out'%}">로그아웃  </a>
+          </span>
+          <!-- <div><a href="/myuser/{{user.id}}"><img src="{% static 'image/person.png'}" width="10px;"></a></div> -->
+          <span style="margin-right: 30px; position:relative; top:10px;"><a href="/myuser/{{user.id}}"><img src="https://img.icons8.com/pastel-glyph/64/919191/gender-neutral-user.png"/></a></span>
+        </div>
+        {% else %}
+        <div class="before_login">
+          <span style="position: absolute; left: 1300px; top: 0px;">
+            <a href="{% url 'users:log_in' %}">로그인</a>
+          </span>
+          <span style="position: absolute; left: 1450px; top: 0px;">|</span>
+          <span style="position: absolute; left: 1500px; top: 0px;">
+            <a href="{% url 'users:sign_up' %}">회원가입</a>
+          </span>
+        </div>
+    {% endif %}
+    
+  <div><button style="position:relative; left:1370px;"><a href="{% url 'boards:create' %}"style="color:white;">글작성</a></button></div>
   <table>
     <th>제목</th>
     <th>작성자</th>
