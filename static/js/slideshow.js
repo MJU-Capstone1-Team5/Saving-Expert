@@ -27,3 +27,20 @@ function nextSlide() {
     current = 0;
     showSlides(current);  
 }
+
+// var imageContainer = document.getElementById('links');
+
+// imageContainer.addEventListener('scroll', function() {
+//   var scrollTop = imageContainer.scrollTop;
+//   var imageHeight = imageContainer.clientHeight;
+//   var totalScrollHeight = imageContainer.scrollHeight;
+//   var scrollPercentage = (scrollTop / (totalScrollHeight - imageHeight)) * 100;
+
+//   if (scrollPercentage < 33) {
+//     imageContainer.classList = 'show-image1';
+//   } else if (scrollPercentage < 66) {
+//     imageContainer.classList = 'show-image2';
+//   } else {
+//     imageContainer.classList = 'show-image3';
+//   }
+// });
