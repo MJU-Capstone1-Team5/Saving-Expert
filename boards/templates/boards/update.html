@@ -3,11 +3,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/boards_style.css'%}?after">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <!-- <style>
+    .sel{
+      border: 1px solid #919191;
+      padding: 30px;
+      margin-bottom: 50px;
+    }
+  </style> -->
 </head>
 <body>
   <div id="container">
@@ -28,7 +35,7 @@
                 <ul>
                   <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
                   <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
-                  <li><a href="#">주식 뉴스</a></li>
+                  <li><a href="http://3.37.169.195:8000/">주식 뉴스</a></li>
                 </ul>
               </li>
               <li><a href="/myuser/{{user.id}}">마이페이지</a></li>
@@ -40,39 +47,43 @@
     <!-- <div style="color:#FF8C00; background-color:#FFFACD; width:80px; padding:4px; border-radius: 8px;">게시물수정</div> -->
     <div class="top">
       <span class="title">게시물 수정</span>
-      <span><button type="submit" style="position:relative; left:60%;">수정</span>
-      <span><a href="{% url 'boards:detail' id=boardinfo.id %}" class="cancel"><button style="position:relative; left:65%; margin:30px">취소</a></button></span>
+      <span><a href="{% url 'boards:detail' id=boardinfo.id %}" class="cancel"><button style="position:relative; left:70%; margin:30px">취소</a></button></span>
       <br>
     </div><hr>
   
   <article style="position: relative;">
-    <form action="/board/update/{{boardinfo.id}}" method="post" enctype="multipart/form-data">
+    <form action="/board/update/{{boardinfo.id}}" method="post" enctype="multipart/form-data" class="update_form">
       {% csrf_token %}
-      <div>제목 <input type="text" name="boardtitle" value="{{boardinfo.title}}"/></div>
-      <div>
-        카테고리
-      <select name="postcategory" id="">
-      {%  for categoryinfo in categoryinfo %}
-        {% if categoryinfo.name == boardinfo.category.name%}
-        <option selected="selected" value="{{categoryinfo.name}}">{{categoryinfo.name}}</option>
-        {% else %}
-        <option value="{{categoryinfo.name}}">{{categoryinfo.name}}</option>
-        {%endif%}
-      {% endfor %}
-  
-      </select>
-      </div>
-      <div>이미지  
-        <div>
-          {% if boardinfo.boardimage %}
-          <div>{{boardinfo.boardimage.url|slice:"18:" }}</div>
-          <input type="checkbox" name="clearimage" value="clearimage" id="clearimage"/><label for="clearimage">clear</label>
+      <div><input type="text" name="boardtitle" value="{{boardinfo.title}}" placeholder="제목"/></div>
+
+      <div class="sel">
+        <span>
+          카테고리
+        <select name="postcategory" id="" style="width: 80px; left:0%">
+        {%  for categoryinfo in categoryinfo %}
+          {% if categoryinfo.name == boardinfo.category.name%}
+          <option selected="selected" value="{{categoryinfo.name}}">{{categoryinfo.name}}</option>
+          {% else %}
+          <option value="{{categoryinfo.name}}">{{categoryinfo.name}}</option>
           {%endif%}
-          <input type="file" name="boardphoto" id="boardphoto" /></div>
-        </div>
+        {% endfor %}
+        </select>
+      </span>
+
+        <div>이미지  
+          <span>
+            {% if boardinfo.boardimage %}
+            <span>{{boardinfo.boardimage.url|slice:"18:" }}</span>
+            <input type="checkbox" name="clearimage" value="clearimage" id="clearimage"/><label for="clearimage">clear</label>
+            {%endif%}
+            <input type="file" name="boardphoto" id="boardphoto" /></span>
+          </div>
+      </div>
+      
         
       <div><center><textarea name="boardcontext" id="" cols="135" rows="10" value="{{boardinfo.context}}">{{boardinfo.context}}</textarea></center></div>
-  
+
+      <div><button type="submit" style="position:relative; left:45%;">수정</div>
     </article>
     </form>
   
@@ -85,7 +96,7 @@
         <ul>
           <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
           <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
-          <li><a href="#">주식 뉴스</a></li>
+          <li><a href="http://3.37.169.195:8000/">주식 뉴스</a></li>
         </ul>
       </div>
       <div id="group">

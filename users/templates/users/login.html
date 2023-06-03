@@ -31,7 +31,7 @@
                 <ul>
                   <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
                   <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
-                  <li><a href="#">주식 뉴스</a></li>
+                  <li><a href="http://3.37.169.195:8000/">주식 뉴스</a></li>
                 </ul>
               </li>
             </ul>
@@ -71,7 +71,7 @@
     </div>
     <!-- container_login 종료 -->
   
-    <div class="container_other" id="login_other">
+    <!-- <div class="container_other" id="login_other"> -->
       <!-- <div class="signup">
         <div class="loginbox3">
           or, New acount?
@@ -79,10 +79,10 @@
         </div>         
       </div> -->
   
-      <div class="social">
+      <div class="social" style="margin-right: 70px;">
   
         <div class="loginbox1">
-          <span class="social_title" style="color: #292929;">
+          <span class="social_title" style="color: #292929; font-weight: bolder; font-size: 30px;">
             <!-- or, Social Login<br> -->
             SNS 계정으로 로그인 하기
           </span>
@@ -90,7 +90,7 @@
     
         <div class="loginbox2">
           <!-- 소셜자리 -->
-          <form action="{% provider_login_url 'google' %}" method="post" class="social">
+          <form action="{% provider_login_url 'google' %}" method="post" class="social" style="margin-top:10px;">
             {% csrf_token %}
             <button type="submit" class="login_social_btn1" style="width:48px; margin:50px;">
               <img src="{% static 'image/google_icon2.png' %}" class="login_social_img3" style="text-align: center;">
@@ -103,7 +103,7 @@
       </div>
       <!-- social 종료 -->
     
-    </div>
+    <!-- </div> -->
     <!-- login_other 종료 -->
     
     <footer>
@@ -111,7 +111,7 @@
         <ul>
           <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
           <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
-          <li><a href="#">주식 뉴스</a></li>
+          <li><a href="http://3.37.169.195:8000/">주식 뉴스</a></li>
         </ul>
       </div>
       <div id="group">

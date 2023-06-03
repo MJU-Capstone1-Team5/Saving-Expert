@@ -29,7 +29,7 @@
                 <ul>
                   <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
                   <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
-                  <li><a href="#">주식 뉴스</a></li>
+                  <li><a href="http://3.37.169.195:8000/">주식 뉴스</a></li>
                 </ul>
               </li>
               <li><a href="/myuser/{{user.id}}">마이페이지</a></li>
@@ -38,9 +38,10 @@
       </nav>
     </header>
 
-    <div class="btn">
-      <button style="position:relative; left:90%;"><a href="{% url 'boards:create' %}" style="color:white;">글작성</a></button>
+    <div id="background_img">
+      <img src="{% static 'image/stock9.png' %}" style="width: 100%;">
     </div>
+
     <table>
       <th>제목</th>
       <th>작성자</th>
@@ -51,12 +52,16 @@
       {% endfor %}
     </table>
 
+    <div class="btn">
+      <button style="position:relative; left:90%;"><a href="{% url 'boards:create' %}" style="color:white;">글작성</a></button>
+    </div>
+
     <footer>
       <div id="bottom_menu">
         <ul>
           <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
           <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
-          <li><a href="#">주식 뉴스</a></li>
+          <li><a href="http://3.37.169.195:8000/">주식 뉴스</a></li>
         </ul>
       </div>
       <div id="group">

@@ -236,9 +236,6 @@ nav{
     padding-top: 1000px;
     padding-bottom: 1000px;
 }
-th{
-    color:#919191;
-}
 tr{
     border:1px solid;
     height: 50px;
@@ -248,6 +245,7 @@ tr{
   margin-top: 100px;
   margin-bottom: 100px;
 }
+
 
 /* create */
 article{
@@ -261,7 +259,8 @@ article{
 .cancel{
   color: white;
 }
-.create_form{
+
+.create_form, .update_form{
   width: 90%;
   padding: 10px;
   margin: 10px;
@@ -274,10 +273,46 @@ article{
 }
 input[type=text], input[type=file]{
   width: 300px;
-  height: 40px;
+  height: 80px;
   border-radius: 5px;
   margin-top: 50px;
 }
+.create_form, .update_form{
+  max-width: 90%;
+  /* max-width: 600px; */
+  margin: 0 auto;
+}
+
+.create_form div, .update_form div{
+  margin-bottom: 10px;
+}
+
+.create_form input[type="text"],
+.create_form select,
+.create_form textarea,
+.update_form input[type="text"],
+.update_form select,
+.update_form textarea  {
+  width: 100%;
+  padding: 5px;
+}
+
+.create_form textarea,
+.update_form textarea {
+  resize: vertical;
+}
+
+.create_form center,
+.update_form center {
+  text-align: center;
+}
+
+.sel{
+  border: 1px solid #919191;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+/* update */
 
 /*   푸터 영역    */
 footer{   
