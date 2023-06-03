@@ -3,8 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from users.models import Myuser
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label="username")
-    password = forms.CharField(widget=forms.PasswordInput, label='password')
+    username = forms.CharField(label="username", widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}), label='password')
 
     def clean(self):
         username = self.cleaned_data.get("username")

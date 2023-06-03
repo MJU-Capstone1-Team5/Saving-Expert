@@ -32,8 +32,8 @@
                     <li>
                     <a href="#">간편주식데이터<span class="arrow"> ▼</span></a>
                     <ul>
-                      <li><a href="#">주가 예측</a></li>
-                      <li><a href="#">주가 분석</a></li>
+                      <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
+                      <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
                       <li><a href="#">주식 뉴스</a></li>
                     </ul>
                   </li>
@@ -52,13 +52,13 @@
           <div id="links">
             <ul>
               <li>
-                <a href="#">
+                <a href="http://15.164.133.23:8000/stock-data/">
                   <span id="stock_link1"></span>
                   <p>주가 예측</p>
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://mjucapstone.herokuapp.com/">
                   <span id="stock_link2"></span>
                   <p>주가 분석</p>
                 </a>            
@@ -103,10 +103,10 @@
                   <li style="margin-left: 400px;"> -->
                     <li><a href="#">투자게시판</a></li>
                     <li>
-                    <a href="#">간편주식데이터<span class="arrow"> ▼</span></a>
+                    <a>간편주식데이터<span class="arrow"> ▼</span></a>
                     <ul>
-                      <li><a href="#">주가 예측</a></li>
-                      <li><a href="#">주가 분석</a></li>
+                      <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
+                      <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
                       <li><a href="#">주식 뉴스</a></li>
                     </ul>
                   </li>
@@ -115,17 +115,12 @@
                 </ul>
             </nav>
         </header>
-            <!-- 내비게이션바 -->
 
-            <!-- <div id="sign_state" style="position: absolute; left: 1000px; top: 0px;">
-              <span class="display-7 fw-bold" style="margin-right: 30px;">{{user.username}}님이 로그인중  </span>
-              <span style="margin-right: 30px;">
-                <a href="{% url 'users:log_out'%}"\>로그아웃  </a>
-              </span>
-              <span style="margin-right: 30px; padding-top: 50px;"><a href="/myuser/{{user.id}}"><img src="https://img.icons8.com/pastel-glyph/64/919191/gender-neutral-user.png"/></a></span>
-            </div> -->
+        <div id="background_img">
+          <img src="{% static 'image/stock6.jpg' %}" style="width: 100%">
+        </div>
         
-        <div id="slide_show">
+        <!-- <div id="slide_show">
           <div id="slides">
             <img src="{% static 'image/slide1.png' %}" alt="">
             <img src="{% static 'image/slide2.png' %}" alt="">
@@ -133,19 +128,19 @@
             <button id="prev" class="slide_btn">&lang;</button>
             <button id="next" class="slide_btn">&rang;</button>
           </div>
-        </div>
+        </div> -->
 
         <div id="contents">
           <div id="links">
             <ul>
               <li>
-                <a href="#">
+                <a href="http://15.164.133.23:8000/stock-data/">
                   <span id="stock_link1"></span>
                   <p>주가 예측</p>
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://mjucapstone.herokuapp.com/">
                   <span id="stock_link2"></span>
                   <p>주가 분석</p>
                 </a>            
@@ -163,8 +158,8 @@
           <footer>    
             <div id="bottom_menu">
               <ul>
-                <li><a href="#">주가 예측</a></li>
-                <li><a href="#">주가 분석</a></li>
+                <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
+                <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
                 <li><a href="#">주식 뉴스</a></li>
               </ul>
             </div>
@@ -175,6 +170,6 @@
           {% endif %} 
     </div> 
 
-    <script src="{% static 'js/slideshow.js' %}"></script>
+    <!-- <script src="{% static 'js/slideshow.js' %}"></script> -->
 </body>
 </html>

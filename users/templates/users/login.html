@@ -9,79 +9,117 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}?after">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <div id="container_login">
-    <header>
-      <div class="logo">
-        <h1>
-          <a href="{% url 'users:main'%}"style="display:inline;"> <img src="{% static 'image/logo.png' %}" style="width:200px; height:100px; margin: 0px;"> </a>
-        </h1><hr/>
-      </div>
+  <div id="container">
+    <div id="container_login">
+      <header>
+        <div id="logo1">
+          <a href="{% url 'users:main' %}">
+                <h1>
+                    <img src="{% static 'image/logo3.png' %}" style="width:70px; height:70px">
+                </h1>
+            </a>             
+        </div>
+  
+        <nav>
+            <ul id="top_menu">
+                <li><a href="{% url 'boards:board' %}">투자게시판</a></li>
+                <li>
+                <a href="#">간편주식데이터<span class="arrow"> ▼</span></a>
+                <ul>
+                  <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
+                  <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
+                  <li><a href="#">주식 뉴스</a></li>
+                </ul>
+              </li>
+            </ul>
+        </nav>
     </header>
+  
+    <div id="login_form">
+      <form action="{% url 'users:log_in' %}" method="POST" class="login_local_form">
+        {% csrf_token %}
+          <span class="login_title">
+            Login
+          </span>
+  
+              <div class="login_id">
+                <!-- <span class="login_text">
+                  username:
+                </span> -->
+                {{form.username}}
+              </div>
+  
+              <div class="login_pw">
+                <!-- <span class="login_text">
+                  password:
+                </span> -->
+                {{form.password}}
+              </div>
+  
+            <button type="submit" class="login_loginbtn">
+              로그인
+            </button>
+          </form>
 
-    <form action="{% url 'users:log_in' %}" method="POST" class="login_local_form">
-      {% csrf_token %}
-        <span class="login_title">
-          Login
-        </span>
+          <div class="loginbox4"><a href="{% url 'users:sign_up' %}">회원가입</a></div>
+    </div>
+    <!-- login_form 종료 -->
 
-            <div class="login_id">
-              <span class="login_text">
-                username:
-              </span>
-              {{form.username}}
-            </div>
-
-            <div class="login_pw">
-              <span class="login_text">
-                password:
-              </span>
-              {{form.password}}
-            </div>
-
-          <button type="submit" class="login_loginbtn">
-            로그인
-          </button>
-        </form>
-  </div>
-
-  <div class="container_other" id="login_other">
-    <div class="signup">
-      <!-- <div class="loginbox3">
-        or, New acount?
-        <a>👉Sign up HERE!<br></a>
+    </div>
+    <!-- container_login 종료 -->
+  
+    <div class="container_other" id="login_other">
+      <!-- <div class="signup">
+        <div class="loginbox3">
+          or, New acount?
+          <a>👉Sign up HERE!<br></a>
+        </div>         
       </div> -->
-                
-      <div class="loginbox4"><a href="{% url 'users:sign_up' %}">회원가입</a></div>
-    </div>
-
-    <div class="social">
-
-      <div class="loginbox1">
-        <span class="social_title" style="color: #4b64ea;">
-          <!-- or, Social Login<br> -->
-          SNS 계정으로 로그인 하기
-        </span>
+  
+      <div class="social">
+  
+        <div class="loginbox1">
+          <span class="social_title" style="color: #292929;">
+            <!-- or, Social Login<br> -->
+            SNS 계정으로 로그인 하기
+          </span>
+        </div>
+    
+        <div class="loginbox2">
+          <!-- 소셜자리 -->
+          <form action="{% provider_login_url 'google' %}" method="post" class="social">
+            {% csrf_token %}
+            <button type="submit" class="login_social_btn1" style="width:48px; margin:50px;">
+              <img src="{% static 'image/google_icon2.png' %}" class="login_social_img3" style="text-align: center;">
+           </button>
+           <button type="submit" class="login_social_btn2" style="width:48px; margin:50px;">
+            <img src="{% static 'image/kakao.png' %}" class="login_social_img3" style="text-align: center;">
+           </button>
+         </form>
+        </div>
       </div>
-  
-      <div class="loginbox2">
-        <!-- 소셜자리 -->
-        <form action="{% provider_login_url 'google' %}" method="post" class="social">
-          {% csrf_token %}
-          <button type="submit" class="login_social_btn1">
-            <img src="{% static 'image/google.png' %}" class="login_social_img3" style="text-align: center;">
-         </button>
-         <button type="submit" class="login_social_btn2">
-          <img src="{% static 'image/kakao4.png' %}" class="login_social_img3" style="text-align: center;">
-         </button>
-       </form>
-      </div>
+      <!-- social 종료 -->
+    
     </div>
+    <!-- login_other 종료 -->
+    
+    <footer>
+      <div id="bottom_menu">
+        <ul>
+          <li><a href="http://15.164.133.23:8000/stock-data/">주가 예측</a></li>
+          <li><a href="https://mjucapstone.herokuapp.com/">주가 분석</a></li>
+          <li><a href="#">주식 뉴스</a></li>
+        </ul>
+      </div>
+      <div id="group">
+        <p>명지대 캡스톤디자인1 5조</p> 
+      </div>     
+    </footer>
+  </div>
+  <!-- #container 종료 -->
   
-  </div>             
-  
-          
 </body>
 </html>

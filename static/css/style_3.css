@@ -15,6 +15,7 @@ ul {
 #container {
   margin:0 auto;
   width:1200px;
+  /* width: 100%; */
 }
 
 /* 헤더 영역 - 로고, 내비게이션바 */
@@ -216,15 +217,19 @@ footer{
   height:100px;
   border-top:2px solid #222;
   background-color: #292929;
+  position: relative;
 }
 #bottom_menu{
   /* width:100%; */
   width: 50%;
   height:20px;
-  position:relative;  
+  /* position:relative;   */
 }
 #bottom_menu ul {
   margin-top:15px;  
+  position: absolute;
+  left: 5%;
+  bottom: 30%;
 }
 #bottom_menu ul li{
   float:left;
@@ -247,7 +252,8 @@ footer{
   margin-left:20px;  */
  
   /* right:10%; */
-  right: 20%;
+  right: 5%;
+  bottom: 40%;
 }
 p {
   font-size:14px; 
@@ -268,4 +274,3 @@ p {
   #links.show-stock_link3 img:nth-child(3) {
     display: block;
   } 스크롤 */
-  
